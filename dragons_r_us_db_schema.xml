@@ -97,7 +97,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="154" y="160" name="bookings">
+<table x="155" y="159" name="bookings">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -114,6 +114,9 @@
 <default>NULL</default></row>
 <row name="end_date" null="1" autoincrement="0">
 <datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="total" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
