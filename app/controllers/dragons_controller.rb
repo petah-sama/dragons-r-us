@@ -7,7 +7,7 @@ class DragonsController < ApplicationController
   end
 
   def show
-    @booking = Booking.new
+    # @booking = Booking.new
   end
 
   def new
@@ -28,7 +28,7 @@ class DragonsController < ApplicationController
 
   def update
     @dragon.update(dragon_params)
-    redirect_to dragon_path
+    redirect_to dragon_path(@dragon)
   end
 
   def destroy

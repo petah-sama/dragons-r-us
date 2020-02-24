@@ -1,2 +1,9 @@
-<h1>Dragons#show</h1>
-<p>Find me in app/views/dragons/show.html.erb</p>
+<h1>Details for <%= @dragon.name %></h1>
+
+<ul>
+  <li>Name: <%= @dragon.name %></li>
+  <li>Category: <%= @dragon.category %></li>
+  <li>Age: <%= @dragon.age %></li>
+  <li>Price: <%= @dragon.price_per_day %> per day</li>
+  <li>Difficulty: <%= @dragon.difficulty %></li>
+</ul>
