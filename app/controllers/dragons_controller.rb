@@ -14,7 +14,7 @@ class DragonsController < ApplicationController
   end
 
   def create
-    @dragon = Dragon.new(dragon_params_create)
+    @dragon = Dragon.new(dragon_params)
     if @dragon.save
       redirect_to dragon_path(@dragon)
     else
@@ -25,7 +25,7 @@ class DragonsController < ApplicationController
   def edit; end
 
   def update
-    @dragon.update(dragon_params_update)
+    @dragon.update(dragon_params)
     redirect_to dragon_path
   end
 
@@ -40,11 +40,7 @@ class DragonsController < ApplicationController
     @dragon = Dragon.find(params[:id])
   end
 
-  def dragon_params_create
-    params.require(:dragon).permit(:name, :type, :age, :price_per_day, :difficulty)
-  end
-
-  def dragon_params_update
-    params.require(:dragon).permit(:name, :type, :age, :difficulty)
+  def dragon_params
+    params.require(:dragon).permit(:name, :category, :age, :price_per_day, :difficulty)
   end
 end

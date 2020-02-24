@@ -6,5 +6,4 @@ class Dragon < ApplicationRecord
   validates :age, presence: true
   validates :price_per_day, presence: true
   validates :location, presence: true, uniqueness: true
-
 end
