@@ -1,22 +1,19 @@
-<h1>Dragons#index</h1>
-<p>Find me in app/views/dragons/index.html.erb</p>
+<h1>Dragons' Lair</h1>
 
 <div class="container">
-  <div class="card-dragon">
-    <img src="https://i.pinimg.com/originals/7d/d2/59/7dd259143b5aa431d457593ad991bc83.jpg" />
-    <div class="dragon-info">
-      <h2>A Magestic Dragon</h2>
-      <% @dragons.each do |dragon| %>
-        <ul>
-          <li>Name: <%=dragon.name %> </li>
-          <li>Age: <%=dragon.age %></li>
-          <li>Category: <%=dragon.category %></li>
-          <li>Difficulty: <%=dragon.difficulty %></li>
-          <li>Location: <%=dragon.location %></li>
-          <li>Price/day: <%=dragon.price_per_day %></li>
-          <% end %>
-        </ul>
-      <div class="countdown">Countdown:</div>
+  <% @dragons.each do |dragon| %>
+    <div class="card-dragon">
+      <img src="https://i.pinimg.com/originals/7d/d2/59/7dd259143b5aa431d457593ad991bc83.jpg" />
+      <div class="dragon-info">
+        <h2> Meet<%=dragon.name %> </h2>
+          <ul>
+            <li>Age: <%=dragon.age %></li>
+            <li>Category: <%=dragon.category %></li>
+            <li>Difficulty: <%=dragon.difficulty %></li>
+            <li>Price/day: <%=dragon.price_per_day %></li>
+          </ul>
+        <div class="countdown">Countdown:</div>
+      </div>
     </div>
-  </div>
+    <% end %>
 </div>
