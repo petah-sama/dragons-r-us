@@ -1,4 +1,5 @@
 class DragonsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :fetch_dragon, only: %i[show edit update destroy]
 
   def index
@@ -14,9 +15,10 @@ class DragonsController < ApplicationController
   end
 
   def create
-    @dragon = Dragon.new(dragon_params_create)
+    @dragon = Dragon.new(dragon_params)
+    @dragon.user = current_user
     if @dragon.save
-      redirect_to dragon_path(@dragon)
+      redirect_to dragons_path
     else
       render :new
     end
@@ -25,7 +27,7 @@ class DragonsController < ApplicationController
   def edit; end
 
   def update
-    @dragon.update(dragon_params_update)
+    @dragon.update(dragon_params)
     redirect_to dragon_path
   end
 
@@ -40,11 +42,7 @@ class DragonsController < ApplicationController
     @dragon = Dragon.find(params[:id])
   end
 
-  def dragon_params_create
-    params.require(:dragon).permit(:name, :type, :age, :price_per_day, :difficulty)
-  end
-
-  def dragon_params_update
-    params.require(:dragon).permit(:name, :type, :age, :difficulty)
+  def dragon_params
+    params.require(:dragon).permit(:name, :category, :age, :price_per_day, :difficulty)
   end
 end
