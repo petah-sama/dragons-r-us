@@ -8,6 +8,15 @@ class DragonsController < ApplicationController
 
   def show
     # @booking = Booking.new
+    @diff = case @dragon.difficulty
+    when 1
+      "Easy"
+    when 2
+      "Medium"
+    when 3
+      "Hard"
+    end
+
   end
 
   def new
