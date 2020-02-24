@@ -7,7 +7,16 @@ class DragonsController < ApplicationController
   end
 
   def show
-    @booking = Booking.new
+    # @booking = Booking.new
+    @diff = case @dragon.difficulty
+    when 1
+      "Easy"
+    when 2
+      "Medium"
+    when 3
+      "Hard"
+    end
+
   end
 
   def new
@@ -28,7 +37,7 @@ class DragonsController < ApplicationController
 
   def update
     @dragon.update(dragon_params)
-    redirect_to dragon_path
+    redirect_to dragon_path(@dragon)
   end
 
   def destroy
