@@ -1,4 +1,5 @@
 class DragonsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :fetch_dragon, only: %i[show edit update destroy]
 
   def index
@@ -15,8 +16,9 @@ class DragonsController < ApplicationController
 
   def create
     @dragon = Dragon.new(dragon_params)
+    @dragon.user = current_user
     if @dragon.save
-      redirect_to dragon_path(@dragon)
+      redirect_to dragons_path
     else
       render :new
     end
