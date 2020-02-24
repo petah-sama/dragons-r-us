@@ -1,7 +1,12 @@
+body {
+  position: relative;
+}
+
 .footer {
   width: 100%;
   position: absolute;
-  bottom: 0;
+  bottom: 0px;
+  margin-bottom: 0px;
   background: $black;
   display: flex;
   align-items: center;
