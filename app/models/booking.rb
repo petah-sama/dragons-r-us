@@ -1,10 +1,11 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :dragon
+
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :total, presence: true
-  validates :end_date_after_start_date
+  validate :end_date_after_start_date
 
   private
 
