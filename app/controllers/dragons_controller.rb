@@ -54,6 +54,6 @@ class DragonsController < ApplicationController
   end
 
   def dragon_params
-    params.require(:dragon).permit(:name, :category, :age, :price_per_day, :difficulty)
+    params.require(:dragon).permit(:name, :category, :age, :price_per_day, :difficulty, :photo)
   end
 end
