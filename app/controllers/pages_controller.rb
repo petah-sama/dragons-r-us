@@ -6,5 +6,12 @@ class PagesController < ApplicationController
 
   def my_dragons
     @dragons = Dragon.where(user: current_user)
+    authorize @dragons
+  end
+
+  def my_bookings
+    @bookings = Booking.where(user: current_user)
+    authorize @bookings
   end
 end
+

@@ -18,7 +18,7 @@
           <% if user_signed_in? %>
             <%= link_to "Breed a dragon", new_dragon_path, class: 'dropdown-item' %>
             <%= link_to "My dragons", my_dragons_path, class: 'dropdown-item' %>
-            <%= link_to "My bookings", my_dragons_path, class: 'dropdown-item' %>
+            <%= link_to "My bookings", my_bookings_path, class: 'dropdown-item' %>
             <hr>
             <%= link_to "Edit profile", edit_user_registration_path, class: 'dropdown-item' %>
             <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>

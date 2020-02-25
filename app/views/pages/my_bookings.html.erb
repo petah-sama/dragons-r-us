@@ -1,0 +1,13 @@
+<div class="container-bookings">
+  <h1>List of bookings</h1>
+  <% @bookings.each do |booking| %>
+  <h2> <%= @dragon.name %></h2>
+  <ul>
+    <li>Start date:<%= booking.start_date %></li>
+    <li>End date:<%= booking.end_date%></li>
+    <li>Total cost:<%= booking.total %></li>
+  </ul>
+  <% end %>
+</div>
+
+<%= link_to 'Home', root_path %>
