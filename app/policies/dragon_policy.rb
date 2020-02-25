@@ -3,23 +3,23 @@ class DragonPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
-    def create?
-      true
-    end
+  def create?
+    true
+  end
 
-    def update?
-      check_user
-    end
+  def update?
+    check_user
+  end
 
-    def destroy?
-      check_user
-    end
+  def destroy?
+    check_user
+  end
 
-    private
+  private
 
-    def check_user
-      record.user == user
-    end
+  def check_user
+    record.user == user
   end
 end
