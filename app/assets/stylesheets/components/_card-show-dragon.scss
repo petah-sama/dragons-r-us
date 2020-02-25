@@ -1,0 +1,29 @@
+.dragon {
+  height: 550px;
+  width: 800px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  margin: 20px auto;
+  margin-top: 60px;
+}
+
+.dragon .dragon-image {
+  object-fit: cover;
+  margin: 40px 30px;
+}
+
+.dragon-info ul {
+  list-style: none;
+  margin-left: 5px;
+  padding-left: 5px;
+}
+
+
+.dragon-info h1 {
+  margin-left: 0px;
+  padding-left: 0px;
+  margin-bottom: 50px;
+}
