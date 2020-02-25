@@ -1,32 +1,39 @@
-<h1>Details for <%= @dragon.name %></h1>
+<div class="container-show">
+  <div class="dragon">
+    <div class="dragon-image">
+      <% if @dragon.photo.attached? %>
+        <%= cl_image_tag @dragon.photo.key, height: 500, width: 300, crop: :fill %>
+      <% else %>
+        <%= cl_image_tag 'nvou98k9mzayc2m57bm1', height: 500, width: 300, crop: :fill %>
+      <% end %>
+    </div>
+    <div class="dragon-info">
+      <h1>Details for <%= @dragon.name %></h1>
+      <ul>
+        <li>Name: <%= @dragon.name %></li>
+        <li>Category: <%= @dragon.category %></li>
+        <li>Age: <%= @dragon.age %> years</li>
+        <li>Price: <%= @dragon.price_per_day %>€ per day</li>
+        <li>Difficulty: <%= @diff %></li>
+      </ul>
+      <div class="booking-info">
+        <% if @dragon.user == current_user %>
+          <%= render partial: 'bookings/list' %>
+        <% elsif current_user %>
+          <%= render partial: 'bookings/new' %>
+        <% end %>
+      </div>
+      <% if policy(@dragon).edit? %>
+        <%= link_to 'Edit', edit_dragon_path(@dragon) %>
+      <% end %>
 
-<div class="dragon">
-  <ul>
-    <li>Name: <%= @dragon.name %></li>
-    <li>Category: <%= @dragon.category %></li>
-    <li>Age: <%= @dragon.age %> years</li>
-    <li>Price: <%= @dragon.price_per_day %>€ per day</li>
-    <li>Difficulty: <%= @diff %></li>
-    <% if @dragon.photo.attached? %>
-      <%= cl_image_tag @dragon.photo.key, height: 600, width: 400, crop: :fill %>
-    <% else %>
-      <%= cl_image_tag 'nvou98k9mzayc2m57bm1', height: 600, width: 400, crop: :fill %>
-    <% end %>
-  </ul>
+      <% if policy(@dragon).edit? %>
+        <%= link_to 'Delete', @dragon, method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </div>
+  </div>
+  <div class="back">
+  <%= link_to 'Back', dragons_path, class: "btn btn-warning"%>
+ </div>
 </div>
 
-<% if policy(@dragon).edit? %>
-  <%= link_to 'Edit', edit_dragon_path(@dragon) %>
-<% end %>
-
-<% if policy(@dragon).edit? %>
-  <%= link_to 'Delete', @dragon, method: :delete, data: { confirm: "Are you sure?" } %>
-<% end %>
-
-<% if @dragon.user == current_user %>
-  <%= render partial: 'bookings/list' %>
-<% elsif current_user %>
-  <%= render partial: 'bookings/new' %>
-<% end %>
-
-<%= link_to 'Back', dragons_path %>
