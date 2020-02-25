@@ -1,5 +1,6 @@
 .card-dragon {
   overflow: visible;
+  position:relative;
   height: 200px;
   width: 450px;
   background: white;
@@ -29,10 +30,16 @@
 }
 
 .card-dragon li {
-  font-size: 12px;
+  font-size: 14px;
   list-style: none;
 }
 
 .card-dragon .dragon-info {
   padding: 8px;
+}
+
+.edit-on-card {
+  position:absolute;
+  right:10px;
+  top: 5px
 }
