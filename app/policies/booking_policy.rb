@@ -13,6 +13,14 @@ class BookingPolicy < ApplicationPolicy
     check_user
   end
 
+  def show?
+    true
+  end
+
+  def my_bookings?
+    true
+  end
+
   private
 
   def check_user
