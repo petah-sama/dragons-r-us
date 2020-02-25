@@ -16,12 +16,11 @@ class BookingsController < ApplicationController
     end
   end
 
-#associar os resultados de data, booking_params.
-
   private
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
   end
+
 
 end
