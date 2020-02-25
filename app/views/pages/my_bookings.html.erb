@@ -1,11 +1,11 @@
 <div class="container-bookings">
   <h1>List of bookings</h1>
   <% @bookings.each do |booking| %>
-  <h2> <%= @dragon.name %></h2>
+  <h2> <%= link_to booking.dragon.name, dragon_path(booking.dragon)%></h2>
   <ul>
     <li>Start date:<%= booking.start_date %></li>
     <li>End date:<%= booking.end_date%></li>
-    <li>Total cost:<%= booking.total %></li>
+    <li>Price:<%= booking.dragon.price_per_day %> euros</li>
   </ul>
   <% end %>
 </div>
