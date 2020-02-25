@@ -16,7 +16,7 @@ class DragonsController < ApplicationController
     when 3
       "Hard"
     end
-
+    @booking = Booking.new
   end
 
   def new
