@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @booking.dragon = @dragon
     @booking.user = current_user
     if @booking.save
-      redirect_to my_bookings_path
+      redirect_to @dragon
     else
       render 'dragons/show'
     end
