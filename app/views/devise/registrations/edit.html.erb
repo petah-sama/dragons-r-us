@@ -4,6 +4,15 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :first_name,
+            required: true,
+            autofocus: true,
+            input_html: { autocomplete: "first_name" }%>
+    <%= f.input :last_name,
+            required: true,
+            autofocus: true,
+            input_html: { autocomplete: "last_name" }%>
+
     <%= f.input :email, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -21,12 +30,14 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :photo, as: :file, required: false %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, "Update" %>
   </div>
 <% end %>
+
 
 <h3>Cancel my account</h3>
 

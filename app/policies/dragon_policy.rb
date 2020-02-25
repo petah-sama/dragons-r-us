@@ -21,6 +21,10 @@ class DragonPolicy < ApplicationPolicy
     check_user
   end
 
+  def my_dragons?
+    true
+  end
+
   private
 
   def check_user

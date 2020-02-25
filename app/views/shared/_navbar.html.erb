@@ -10,15 +10,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
-        <%= link_to dragons_path do %>
-          <span class="mr-3 navbar-brand" style="font-family: 'Marcellus';">Dragon's Lair</span>
+
+        <%= link_to 'Dragon\'s Lair', dragons_path, class: 'mr-3 navbar-brand', style: "font-family: 'Marcellus';" %>
+
+        <% if current_user && current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } %>
+        <% else %>
+          <%= cl_image_tag 'nvou98k9mzayc2m57bm1', height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } %>
         <% end %>
-        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://image.freepik.com/free-vector/cute-purple-dragon-avatar_79416-76.jpg" />
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <% if user_signed_in? %>
             <%= link_to "Breed a dragon", new_dragon_path, class: 'dropdown-item' %>
             <%= link_to "My dragons", my_dragons_path, class: 'dropdown-item' %>
-            <%= link_to "My bookings", my_dragons_path, class: 'dropdown-item' %>
+            <%= link_to "My bookings", my_bookings_path, class: 'dropdown-item' %>
             <hr>
             <%= link_to "Edit profile", edit_user_registration_path, class: 'dropdown-item' %>
             <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>

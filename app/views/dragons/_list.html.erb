@@ -1,0 +1,34 @@
+<% @dragons.each do |dragon| %>
+  <div class="card-dragon">
+    <% if dragon.photo.attached? %>
+        <%= link_to dragon_path(dragon) do %>
+          <%= cl_image_tag dragon.photo.key, width: 180, height: 100, crop: :fit %>
+        <% end %>
+    <% else %>
+      <%= link_to dragon_path(dragon) do %>
+        <img src="https://i.pinimg.com/originals/7d/d2/59/7dd259143b5aa431d457593ad991bc83.jpg" />
+      <% end %>
+    <% end %>
+    <div class="dragon-info">
+        <h2><%= link_to dragon.name, dragon_path(dragon) %></h2>
+
+        <ul>
+          <li>Age: <%=dragon.age %> years</li>
+          <li>Category: <%=dragon.category %></li>
+          <li>Difficulty: <%=dragon.difficulty %></li>
+          <li>Price/day: <%=dragon.price_per_day %></li>
+          <li>Breeder: <%= dragon.user.first_name %> <%= dragon.user.last_name %></li>
+        </ul>
+    </div>
+    <% if dragon.user == current_user %>
+      <div class = 'edit-on-card'>
+        <% if policy(dragon).edit? %>
+          <%= link_to edit_dragon_path(dragon) do %>
+            <i class="far fa-edit"></i>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+<% end %>

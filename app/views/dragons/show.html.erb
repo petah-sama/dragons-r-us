@@ -23,28 +23,10 @@
   <%= link_to 'Delete', @dragon, method: :delete, data: { confirm: "Are you sure?" } %>
 <% end %>
 
-<div class="col-6">
-    <h3>Add a new booking</h3>
-
-    <% if @booking.errors.any? %>
-      <div class="alert alert-danger">
-        <h3>Booking has errors!</h3>
-        <ul>
-          <% @booking.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-  <%= simple_form_for [@dragon, @booking] do |f| %>
-    <div class="d-flex">
-      <%= f.input :start_date, html5: true, class: 'form-control datepicker' %>
-      <%= f.input :end_date, html5: true  %>
-    </div>
-    <%= f.submit 'Create a booking', class: 'btn btn-success' %>
-  <% end %>
-  </div>
-</div>
+<% if @dragon.user == current_user %>
+  <%= render partial: 'bookings/list' %>
+<% elsif current_user %>
+  <%= render partial: 'bookings/new' %>
+<% end %>
 
 <%= link_to 'Back', dragons_path %>
