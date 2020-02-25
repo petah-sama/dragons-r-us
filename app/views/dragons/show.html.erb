@@ -4,9 +4,9 @@
  <div class="dragon">
     <h1> <%= @dragon.name %> </h1>
     <% if @dragon.photo.attached? %>
-        <%= cl_image_tag @dragon.photo.key, height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag @dragon.photo.key, height: 600, width: 400, crop: :fill %>
       <% else %>
-        <%= cl_image_tag 'jmqamrcrshvknigw1nv5', height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag 'nvou98k9mzayc2m57bm1', height: 600, width: 400, crop: :fill %>
     <% end %>
   </div>
 
