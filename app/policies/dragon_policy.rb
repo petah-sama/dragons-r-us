@@ -9,6 +9,10 @@ class DragonPolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    true
+  end
+
   def update?
     check_user
   end
