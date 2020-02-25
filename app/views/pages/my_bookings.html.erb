@@ -5,12 +5,9 @@
   <ul>
     <li>Start date:<%= booking.start_date %></li>
     <li>End date:<%= booking.end_date%></li>
-    <li>Price:<%= booking.dragon.price_per_day %> euros</li>
-    <li>
-      <% if booking.user == current_user %>
-        <div class="countdown"><%= booking.countdown %> days left! </div>
-      <% end %>
-    </li>
+    <li>Days until your booking: <%= booking.countdown %> </li>
+    <li>Final price: <%= booking.total_price %> euros</li>
+
   </ul>
   <% end %>
 </div>
