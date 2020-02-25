@@ -1,11 +1,10 @@
-<h1>Dragons' Lair</h1>
-
-<div class="container">
+<div class="container-dragons">
+  <h1>Dragons' Lair</h1>
   <% @dragons.each do |dragon| %>
     <div class="card-dragon">
       <img src="https://i.pinimg.com/originals/7d/d2/59/7dd259143b5aa431d457593ad991bc83.jpg" />
       <div class="dragon-info">
-        <h2> Meet<%=dragon.name %> </h2>
+        <h2> <%=dragon.name %> </h2>
           <ul>
             <li>Age: <%=dragon.age %></li>
             <li>Category: <%=dragon.category %></li>
@@ -15,5 +14,7 @@
         <div class="countdown">Countdown:</div>
       </div>
     </div>
-    <% end %>
+  <% end %>
 </div>
+
+
