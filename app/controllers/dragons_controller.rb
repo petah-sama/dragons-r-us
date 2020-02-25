@@ -51,6 +51,7 @@ class DragonsController < ApplicationController
 
   def fetch_dragon
     @dragon = Dragon.find(params[:id])
+    authorize @dragon
   end
 
   def dragon_params
