@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path do %>
-    <span class="navbar-brand">DRAGONS 'Я' US</span>
+    <span class="navbar-brand" style="font-family: 'Marcellus';"><strong>DRAGONS 'Я' US</strong></span>
   <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -10,10 +10,14 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
-        <%= link_to dragons_path do %>
-          <span class="mr-3 navbar-brand">Dragon's Lair</span>
+
+        <%= link_to 'Dragon\'s Lair', dragons_path, class: 'mr-3 navbar-brand', style: "font-family: 'Marcellus';" %>
+
+        <% if current_user && current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } %>
+        <% else %>
+          <%= cl_image_tag 'nvou98k9mzayc2m57bm1', height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle", id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } %>
         <% end %>
-        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://image.freepik.com/free-vector/cute-purple-dragon-avatar_79416-76.jpg" />
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <% if user_signed_in? %>
             <%= link_to "Breed a dragon", new_dragon_path, class: 'dropdown-item' %>

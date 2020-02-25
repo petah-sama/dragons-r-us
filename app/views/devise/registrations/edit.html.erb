@@ -30,12 +30,14 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :photo, as: :file, required: false %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, "Update" %>
   </div>
 <% end %>
+
 
 <h3>Cancel my account</h3>
 

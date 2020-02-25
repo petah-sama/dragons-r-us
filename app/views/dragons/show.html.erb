@@ -19,7 +19,7 @@
       <div class="booking-info">
         <% if @dragon.user == current_user %>
           <%= render partial: 'bookings/list' %>
-        <% else %>
+        <% elsif current_user %>
           <%= render partial: 'bookings/new' %>
         <% end %>
       </div>

@@ -10,7 +10,8 @@
       <% end %>
     <% end %>
     <div class="dragon-info">
-      <h2><%= link_to dragon.name, dragon_path(dragon) %></h2>
+        <h2><%= link_to dragon.name, dragon_path(dragon) %></h2>
+
         <ul>
           <li>Age: <%=dragon.age %> years</li>
           <li>Category: <%=dragon.category %></li>
@@ -18,7 +19,16 @@
           <li>Price/day: <%=dragon.price_per_day %></li>
           <li>Breeder: <%= dragon.user.first_name %> <%= dragon.user.last_name %></li>
         </ul>
-      <div class="countdown">Countdown:</div>
     </div>
+    <% if dragon.user == current_user %>
+      <div class = 'edit-on-card'>
+        <% if policy(dragon).edit? %>
+          <%= link_to edit_dragon_path(dragon) do %>
+            <i class="far fa-edit"></i>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
+
 <% end %>
