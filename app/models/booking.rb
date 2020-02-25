@@ -1,4 +1,5 @@
 class Booking < ApplicationRecord
+  attr_reader :total_price
   belongs_to :user
   belongs_to :dragon
 
@@ -8,7 +9,7 @@ class Booking < ApplicationRecord
 
   def total_price
     days = (self.end_date - self.start_date).to_i
-    total_price = self.price_per_day*days
+    total_price = self.dragon.price_per_day*days
   end
 
   private
