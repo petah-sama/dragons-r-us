@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
 ruby '2.6.5'
 
+gem 'cloudinary', '~> 1.12.0'
+
 gem 'devise'
 gem 'faker'
+gem 'pundit'
 
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'

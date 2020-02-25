@@ -4,5 +4,8 @@
   <%= f.input :age %>
   <%= f.input :price_per_day %>
   <%= f.input :difficulty %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit %>
 <% end %>
+
+<%= link_to 'Back', root_path, class: "btn btn-primary"%>

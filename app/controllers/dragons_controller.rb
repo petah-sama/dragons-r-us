@@ -3,11 +3,11 @@ class DragonsController < ApplicationController
   before_action :fetch_dragon, only: %i[show edit update destroy]
 
   def index
-    @dragons = Dragon.all
+    @dragons = policy_scope(Dragon)
   end
 
   def show
-    # @booking = Booking.new
+    @booking = Booking.new
     @diff = case @dragon.difficulty
     when 1
       "Easy"
@@ -16,16 +16,18 @@ class DragonsController < ApplicationController
     when 3
       "Hard"
     end
-    @booking = Booking.new
   end
 
   def new
     @dragon = Dragon.new
+    authorize @dragon
   end
 
   def create
     @dragon = Dragon.new(dragon_params)
     @dragon.user = current_user
+    authorize @dragon
+
     if @dragon.save
       redirect_to dragons_path
     else
@@ -49,9 +51,10 @@ class DragonsController < ApplicationController
 
   def fetch_dragon
     @dragon = Dragon.find(params[:id])
+    authorize @dragon
   end
 
   def dragon_params
-    params.require(:dragon).permit(:name, :category, :age, :price_per_day, :difficulty)
+    params.require(:dragon).permit(:name, :category, :age, :price_per_day, :difficulty, :photo)
   end
 end

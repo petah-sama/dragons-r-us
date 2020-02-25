@@ -1,16 +1,27 @@
 <h1>Details for <%= @dragon.name %></h1>
 
-<ul>
-  <li>Name: <%= @dragon.name %></li>
-  <li>Category: <%= @dragon.category %></li>
-  <li>Age: <%= @dragon.age %></li>
-  <li>Price: <%= @dragon.price_per_day %>€ per day</li>
-  <li>Difficulty: <%= @diff %></li>
-</ul>
+<div class="dragon">
+  <ul>
+    <li>Name: <%= @dragon.name %></li>
+    <li>Category: <%= @dragon.category %></li>
+    <li>Age: <%= @dragon.age %> years</li>
+    <li>Price: <%= @dragon.price_per_day %>€ per day</li>
+    <li>Difficulty: <%= @diff %></li>
+    <% if @dragon.photo.attached? %>
+      <%= cl_image_tag @dragon.photo.key, height: 600, width: 400, crop: :fill %>
+    <% else %>
+      <%= cl_image_tag 'nvou98k9mzayc2m57bm1', height: 600, width: 400, crop: :fill %>
+    <% end %>
+  </ul>
+</div>
 
-<%= link_to 'Edit', edit_dragon_path(@dragon) %>
+<% if policy(@dragon).edit? %>
+  <%= link_to 'Edit', edit_dragon_path(@dragon) %>
+<% end %>
 
-<%= link_to 'Delete', @dragon, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+<% if policy(@dragon).edit? %>
+  <%= link_to 'Delete', @dragon, method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>
 
 <div class="col-6">
     <h3>Add a new booking</h3>
@@ -35,3 +46,5 @@
   <% end %>
   </div>
 </div>
+
+<%= link_to 'Back', dragons_path %>
