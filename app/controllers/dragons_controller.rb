@@ -3,7 +3,7 @@ class DragonsController < ApplicationController
   before_action :fetch_dragon, only: %i[show edit update destroy]
 
   def index
-    @dragons = Dragon.all
+    @dragons = policy_scope(Dragon)
   end
 
   def show
@@ -16,16 +16,18 @@ class DragonsController < ApplicationController
     when 3
       "Hard"
     end
-
   end
 
   def new
     @dragon = Dragon.new
+    authorize @dragon
   end
 
   def create
     @dragon = Dragon.new(dragon_params)
     @dragon.user = current_user
+    authorize @dragon
+
     if @dragon.save
       redirect_to dragons_path
     else
