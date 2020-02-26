@@ -3,8 +3,16 @@ class DragonsController < ApplicationController
   before_action :fetch_dragon, only: %i[show edit update destroy]
 
   def index
-    @dragons = policy_scope(Dragon)
+    @dragons = policy_scope(Dragon).geocoded
+
+    @markers = @dragons.map do |dragon|
+      {
+        lat: dragon.latitude,
+        lng: dragon.longitude
+      }
+    end
   end
+
 
   def show
     @booking = Booking.new
@@ -55,6 +63,6 @@ class DragonsController < ApplicationController
   end
 
   def dragon_params
-    params.require(:dragon).permit(:name, :category, :age, :price_per_day, :difficulty, :photo)
+    params.require(:dragon).permit(:name, :category, :age, :price_per_day, :difficulty, :address, :photo)
   end
 end
