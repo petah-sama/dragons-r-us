@@ -1,0 +1,19 @@
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  h2 {
+    font-family: 'Marcellus';
+  }
+  p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+  }
+
+}
+
+#map {
+  margin-top:10px;
+}
