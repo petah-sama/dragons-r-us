@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :fetch_dragon, only: %i[create destroy]
+  before_action :fetch_dragon, only: %i[create]
 
   def new
     @booking = Booking.new
@@ -19,8 +19,10 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.destroy
-    redirect_to my_dragons_path
+    redirect_to my_bookings_path
   end
 
   private

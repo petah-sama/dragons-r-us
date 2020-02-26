@@ -16,13 +16,21 @@
         <li>Price: <%= @dragon.price_per_day %>€ per day</li>
         <li>Difficulty: <%= @diff %></li>
       </ul>
+
       <div class="booking-info">
-        <% if @dragon.user == current_user %>
-          <%= render partial: 'bookings/list' %>
-        <% elsif current_user %>
-          <%= render partial: 'bookings/new' %>
-        <% end %>
+        <div class="booking-pick">
+          <% if @dragon.user == current_user %>
+            <%= render partial: 'bookings/list' %>
+          <% elsif current_user %>
+            <%= render partial: 'bookings/new' %>
+          <% end %>
+        </div>
+
+        <div class="booking-calendar">
+          <%= render partial: 'bookings/calendar' %>
+        </div>
       </div>
+
       <% if policy(@dragon).edit? %>
         <%= link_to 'Edit', edit_dragon_path(@dragon) %>
       <% end %>
@@ -30,6 +38,7 @@
       <% if policy(@dragon).edit? %>
         <%= link_to 'Delete', @dragon, method: :delete, data: { confirm: "Are you sure?" } %>
       <% end %>
+
     </div>
   </div>
   <div class="back">
