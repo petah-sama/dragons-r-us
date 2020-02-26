@@ -1,15 +1,33 @@
 <div class="container-bookings">
   <h1>List of bookings</h1>
-  <% @bookings.each do |booking| %>
-  <h2> <%= link_to booking.dragon.name, dragon_path(booking.dragon)%></h2>
-  <ul>
-    <li>Start date:<%= booking.start_date %></li>
-    <li>End date:<%= booking.end_date%></li>
-    <li>Days until your booking: <%= booking.countdown %> </li>
-    <li>Final price: <%= booking.total_price %> euros</li>
 
-  </ul>
-  <% end %>
+  <div class="d-flex justify-contents-between">
+    <div class="flex-grow">
+      <% @bookings.each do |booking| %>
+      <h2> <%= link_to booking.dragon.name, dragon_path(booking.dragon)%></h2>
+        <ul>
+          <li>Start date:<%= booking.start_date %></li>
+          <li>End date:<%= booking.end_date%></li>
+          <li>Days until your booking: <%= booking.countdown %> </li>
+          <li>Final price: <%= booking.total_price %> euros</li>
+
+          <% if policy(booking).destroy? %>
+            <%= link_to 'Delete', booking, method: :delete, data: { confirm: "Are you sure?" } %>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+
+    <div class="calendar-container">
+      <%= month_calendar events: @bookings do |date, bookings| %>
+        <%= date.day %>
+
+        <% bookings.each do |booking| %>
+          <p><%= booking.dragon.name %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <%= link_to 'Home', root_path %>
