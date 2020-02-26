@@ -8,7 +8,9 @@ class DragonsController < ApplicationController
     @markers = @dragons.map do |dragon|
       {
         lat: dragon.latitude,
-        lng: dragon.longitude
+        lng: dragon.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { dragon: dragon })
+
       }
     end
   end

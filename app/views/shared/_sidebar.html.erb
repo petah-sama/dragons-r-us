@@ -1,9 +1,12 @@
 <div class="sidenav">
-  <%= link_to dragons_path do %>
+  <%= link_to root_path do %>
     <span style="font-family: 'Marcellus';">DRAGONS 'Я' US</span>
   <% end %>
   <hr>
   <div id="paths"  style="margin-top: 50px">
+    <%= link_to "Dragon's Lair", dragons_path %>
+    <br>
+    <br>
     <% if user_signed_in? %>
       <%= link_to "Breed a dragon", new_dragon_path %>
       <br>
