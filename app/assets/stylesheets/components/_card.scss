@@ -1,8 +1,9 @@
 .card-dragon {
   overflow: visible;
-  position:relative;
+  position: relative;
   height: 200px;
-  width: 450px;
+  min-width: 600px;
+  max-width: 750px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -13,29 +14,73 @@
 
 .card-dragon img {
   height: 180px;
-  width: 100px;
+  width: 140px;
   object-fit: cover;
   margin: 10px 10px;
 }
 
 .card-dragon h2 {
-  font-size: 20px;
+  font-family: 'Marcellus';
+  font-size: 30px;
   font-weight: bold;
   margin: 2px 2px 20px 0px;
 }
 
+.card-dragon a {
+  text-decoration: none;
+  color: #E67E22;
+
+}
+
 .card-dragon ul {
+  display: flex;
+  justify-content: space-between;
   margin-left: 0px;
   padding-left: 0px;
 }
 
+.price p {
+  color: rgb(146, 58, 73);
+  font-size: 18px;
+  font-weight: bold;
+  flex-grow: 1;
+  margin-bottom: 0px;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
 .card-dragon li {
-  font-size: 14px;
+  font-size: 18px;
+  line-height: 30px;
   list-style: none;
+  color: gray;
+}
+
+.breeder-category {
+  min-width: 250px;
+  width: 380px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.breeder-category i {
+ font-size: 20px;
+ color: #E67E22;
 }
 
 .card-dragon .dragon-info {
   padding: 8px;
+  min-width: 400px;
+  width: 550px;
+}
+
+.difficulty i {
+  color: rgb(146, 58, 73);
+  font-size: 20px;
+}
+
+.difficulty li {
+  font-size: 18px;
 }
 
 .edit-on-card {
