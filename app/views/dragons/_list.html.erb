@@ -11,13 +11,20 @@
     <% end %>
     <div class="dragon-info">
         <h2><%= link_to dragon.name, dragon_path(dragon) %></h2>
-
         <ul>
-          <li>Age: <%=dragon.age %> years</li>
-          <li>Category: <%=dragon.category %></li>
-          <li>Difficulty: <%=dragon.difficulty %></li>
-          <li>Price/day: <%=dragon.price_per_day %></li>
-          <li>Breeder: <%= dragon.user.first_name %> <%= dragon.user.last_name %></li>
+          <div>
+            <li>Age: <%=dragon.age %> years</li>
+            <div class="breeder-category">
+              <li><i class="fas fa-magic"></i> <%= dragon.user.first_name %> <%= dragon.user.last_name %></li>
+              <li><i class="fas fa-dragon"></i> <%=dragon.category %></li>
+            </div>
+            <div class="difficulty">
+              <li>Difficulty: <% dragon.difficulty.times do %> <i class="fas fa-meteor"></i> <% end %> </li>
+            </div>
+          </div>
+          <div class="price">
+            <p> € <%=dragon.price_per_day %> / day</p>
+          </div>
         </ul>
     </div>
     <% if dragon.user == current_user %>

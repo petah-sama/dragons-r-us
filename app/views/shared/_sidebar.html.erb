@@ -1,0 +1,28 @@
+<div class="sidenav">
+  <%= link_to root_path do %>
+    <span style="font-family: 'Marcellus';">DRAGONS 'Я' US</span>
+  <% end %>
+  <hr>
+  <div style="margin-top: 50px">
+    <% if user_signed_in? %>
+      <%= link_to "Breed a dragon", new_dragon_path %>
+      <br>
+      <%= link_to "My dragons", my_dragons_path %>
+      <br>
+      <%= link_to "My bookings", my_bookings_path %>
+    <% end %>
+  </div>
+  <div class="footer">
+    <div class="footer-links">
+      <div class="d-flex">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+      </div>
+      <div class="d-flex center-footer">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,8 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'devise'
 gem 'faker'
 gem 'pundit'
+gem "simple_calendar", "~> 2.0"
+gem 'geocoder'
 
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'

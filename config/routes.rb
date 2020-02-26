@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :dragons do
     resources :bookings, only: :create
   end
-  resources :bookings, only: :delete
+  resources :bookings, only: :destroy
 end
