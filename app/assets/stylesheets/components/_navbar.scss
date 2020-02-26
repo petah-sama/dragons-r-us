@@ -1,41 +1,21 @@
-// .navbar-lewagon {
-//   justify-content: space-between;
-//   background: $orange;
-//   height: 80px;
-//   position: sticky;
-//   top: 0px;
-//   z-index: 2;
-// }
-
-// .navbar-lewagon .navbar-collapse {
-//   flex-grow: 0;
-// }
-
-// .navbar-lewagon .navbar-brand img {
-//   width: 40px;
-// }
-
-// .navbar-brand {
-//   color: $light-gray;
-// }
-
-.sidenav {
-  height: 100%;
-  width: 180px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 20px;
+.navbar-lewagon {
+  justify-content: space-between;
+  background: $orange;
+  height: 80px;
+  position: sticky;
+  top: 0px;
+  z-index: 2;
 }
 
-.sidenav a {
-  font-family: 'Marcellus';
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
 }
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+.navbar-brand {
+  color: $light-gray;
+}
+
