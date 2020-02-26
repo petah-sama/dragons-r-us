@@ -1,11 +1,11 @@
 .simple-calendar {
   .day {
-    max-height: 50px;
+    max-height: 40px;
   }
 
   .has-events {
     background-color: $orange;
-    max-height: 50px;
+    max-height: 40px;
 
     p {
       font-size: 0.7rem;
@@ -17,3 +17,18 @@
   width: 480px;
   height: 240px;
 }
+
+
+.simple-calendar .day {
+    height: 30px;
+    width: 18px;
+    text-align: center;
+    font-size: 11px;
+}
+
+.simple-calendar th {
+    height: 30px;
+    text-align: center;
+    font-size: 15px;
+    padding: 2px;
+  }
