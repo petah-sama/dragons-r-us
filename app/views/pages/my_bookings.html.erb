@@ -2,9 +2,9 @@
   <h1>List of bookings</h1>
 
   <div class="d-flex justify-contents-between">
-    <div class="flex-grow">
+     <div class="flex-grow">
       <% @bookings.each do |booking| %>
-      <h2> <%= link_to booking.dragon.name, dragon_path(booking.dragon)%></h2>
+      <h3> <%= link_to booking.dragon.name, dragon_path(booking.dragon)%></h3>
         <ul>
           <li>Start date:<%= booking.start_date %></li>
           <li>End date:<%= booking.end_date%></li>

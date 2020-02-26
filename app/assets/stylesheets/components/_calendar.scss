@@ -4,7 +4,7 @@
   }
 
   .has-events {
-    background-color: $orange;
+    background-color: #E67E22;
     max-height: 40px;
 
     p {
@@ -32,3 +32,8 @@
     font-size: 15px;
     padding: 2px;
   }
+
+
+  .simple-calendar .today {
+    background: #E67E22;
+}
