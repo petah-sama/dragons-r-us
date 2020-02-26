@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts 'Canceling all bookings'
+Booking.destroy_all
+
 puts 'Killing all dragons with an axe 🪓🪓🪓'
 Dragon.destroy_all
 
@@ -18,7 +21,9 @@ puts 'Breeding 10 more dragons 🥚'
     age: rand(100..10000),
     user_id: 1,
     price_per_day: rand(0..1000),
-    difficulty: rand(1..3)
+    difficulty: rand(1..3),
+    address: 'Praça marques de pombal, Lisboa',
+    available: true
   )
 end
 
