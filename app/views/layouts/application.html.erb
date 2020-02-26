@@ -7,23 +7,24 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
     <%= render 'shared/flashes' %>
     <div class="mega-container">
 
       <%= render 'shared/sidebar' %>
-      <div class="main-container" style="margin-left: 240px;">
-        <div class="navbar">
 
-        </div>
+      <div class="main-container" style="margin-left: 240px;">
+
+        <%= render 'shared/navbar' %>
+
         <div class="yield-container">
 
           <%= yield %>
+
         </div>
       </div>
-    <%#= render 'shared/footer' %>
     </div>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
