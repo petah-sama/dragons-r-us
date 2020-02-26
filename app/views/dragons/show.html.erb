@@ -9,12 +9,20 @@
     </div>
     <div class="dragon-info">
       <h1>Details for <%= @dragon.name %></h1>
-      <ul>
-        <li>Name: <%= @dragon.name %></li>
-        <li>Category: <%= @dragon.category %></li>
-        <li>Age: <%= @dragon.age %> years</li>
-        <li>Price: <%= @dragon.price_per_day %>€ per day</li>
-        <li>Difficulty: <%= @diff %></li>
+      <ul class="icons">
+          <div>
+            <li>Age: <%=@dragon.age %> years</li>
+            <div class="breeder-category">
+              <li><i class="fas fa-magic"></i> <%= @dragon.user.first_name %> <%= @dragon.user.last_name %></li>
+              <li><i class="fas fa-dragon"></i> <%=@dragon.category %></li>
+            </div>
+            <div class="difficulty">
+              <li>Difficulty: <% @dragon.difficulty.times do %> <i class="fas fa-meteor"></i> <% end %> </li>
+            </div>
+          </div>
+          <div class="price">
+            <p> € <%=@dragon.price_per_day %> / day</p>
+          </div>
       </ul>
 
       <div class="booking-info">
