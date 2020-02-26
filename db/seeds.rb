@@ -18,7 +18,9 @@ puts 'Breeding 10 more dragons 🥚'
     age: rand(100..10000),
     user_id: 1,
     price_per_day: rand(0..1000),
-    difficulty: rand(1..3)
+    difficulty: rand(1..3),
+    address: 'Praça marques de pombal, Lisboa',
+    available: true
   )
 end
 
