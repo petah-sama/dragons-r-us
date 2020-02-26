@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts 'Canceling all bookings'
+Booking.destroy_all
+
 puts 'Killing all dragons with an axe 🪓🪓🪓'
 Dragon.destroy_all
 
