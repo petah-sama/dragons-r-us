@@ -1,6 +1,6 @@
 .sidenav {
   height: 100%;
-  width: 180px;
+  width: 240px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -8,7 +8,14 @@
   background-color: #111;
   overflow-x: hidden;
   padding-top: 20px;
+  span {
+    font-size: 20px;
+    text-align: center;
+    color: white;
+  }
 }
+
+
 
 .sidenav a {
   font-family: 'Marcellus';
@@ -17,4 +24,22 @@
   font-size: 25px;
   color: #818181;
   display: block;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
+  transition: text-shadow 0.5s ease;
+  text-align: center;
+    &:hover {
+    text-shadow: -3px 0 5px $orange, 0 3px 5px $orange, 3px 0 5px $orange, 0 -3px 5px $orange;
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 5px;
+  margin-left: 57px;
+}
+
+.center-footer {
+  margin-left: 20px;
 }

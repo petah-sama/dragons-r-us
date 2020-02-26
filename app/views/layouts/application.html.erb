@@ -10,12 +10,11 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
+    <%= render 'shared/flashes' %>
     <div class="mega-container">
-      <div>
-        <%= render 'shared/flashes' %>
-        <%= render 'shared/sidebar' %>
-      </div>
-      <div class="main-container">
+
+      <%= render 'shared/sidebar' %>
+      <div class="main-container" style="margin-left: 240px;">
         <div class="navbar">
 
         </div>
