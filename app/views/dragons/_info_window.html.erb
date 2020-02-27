@@ -1,2 +1,18 @@
-<h2 class = 'info-window-text'><%= dragon.name %></h2>
-<p class = 'info-window-text'><%= dragon.address %></p>
+<div class ='info-window-content d-flex align-items-center justify-content-around'>
+  <div class="photo">
+  <% if dragon.photo.attached? %>
+        <%= link_to dragon_path(dragon), class: 'info-window-img' do %>
+          <%= cl_image_tag dragon.photo.key, width: 80, height: 80, crop: :fit, class:"info-window-img" %>
+        <% end %>
+    <% else %>
+      <%= link_to dragon_path(dragon) do %>
+        <img class = 'info-window-img' src="https://i.pinimg.com/originals/7d/d2/59/7dd259143b5aa431d457593ad991bc83.jpg" />
+      <% end %>
+    <% end %>
+  </div>
+  <div class ='info'>
+    <h2 class = 'info-window-text'><%= dragon.name %></h2>
+    <p class = 'info-window-text'><%= dragon.address %></p>
+  </div>
+</div>
+
