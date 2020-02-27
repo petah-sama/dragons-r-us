@@ -52,7 +52,7 @@ class DragonsController < ApplicationController
     authorize @dragon
 
     if @dragon.save
-      redirect_to dragons_path
+      redirect_to dragon_path(@dragon)
     else
       render :new
     end
