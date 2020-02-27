@@ -19,11 +19,18 @@
   }
 }
 
+#paths {
+  margin-top: 50px;
+}
+
 #paths a {
   color: #818181;
   transition: color 0.5s ease;
-    &:hover {
-      color: white;
+  &:hover {
+    color: white;
+  }
+  .link-active {
+    color: red;
   }
 }
 
@@ -39,7 +46,6 @@
   padding: 0px 10px;
   text-align: center;
 }
-
 
 .footer {
   position: absolute;
