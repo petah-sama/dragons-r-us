@@ -16,8 +16,8 @@ class DragonsController < ApplicationController
       {
         lat: dragon.latitude,
         lng: dragon.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { dragon: dragon })
-
+        infoWindow: render_to_string(partial: "info_window", locals: { dragon: dragon }),
+        image_url: helpers.asset_url('dragon-avatar-blackwhite.jpg')
       }
     end
   end
@@ -33,6 +33,12 @@ class DragonsController < ApplicationController
     when 3
       "Hard"
     end
+    @markers = [{
+      lat: @dragon.latitude,
+      lng: @dragon.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { dragon: @dragon }),
+      image_url: helpers.asset_url('dragon-avatar-blackwhite.jpg')
+    }]
   end
 
   def new

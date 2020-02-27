@@ -1,5 +1,10 @@
 .dragons-navbar {
+  height: 60px;
+  position: sticky;
+  top: 0px;
+  z-index: 2;
   padding: 10px 16px 0 0;
+  user-select: none;
   background-color: rgba(17, 17, 17, 0.8);
     color: white;
 
@@ -15,14 +20,4 @@
       color: white;
     }
   }
-}
-
-.dragons-navbar {
-  height: 60px;
-  position: sticky;
-  top: 0px;
-  z-index: 2;
-}
-
-
-
+} 
