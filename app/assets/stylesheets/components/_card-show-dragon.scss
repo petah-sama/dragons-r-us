@@ -1,6 +1,6 @@
 .dragon {
   height: 550px;
-  width: 800px;
+  width: 1100px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -8,11 +8,17 @@
   border-radius: 5px;
   margin: 20px auto;
   margin-top: 60px;
+  border-radius: 5px;
 }
 
 .dragon .dragon-image {
   object-fit: cover;
-  margin: 40px 30px;
+  margin-right: 20px;
+  margin: 0px 20px 0px 0px;
+}
+
+.dragon-image {
+  border-radius: 5px;
 }
 
 .dragon-info ul{
@@ -41,6 +47,8 @@
   font-weight: bold;
   margin: 10px 2px 10px 0px;
   color: #E67E22;
+  position: fixed;
+  top: 50px;
 }
 
 
