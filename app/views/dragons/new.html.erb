@@ -1,5 +1,40 @@
-<h1>New Dragon</h1>
+<div class="container-show col-8">
 
-<%= render partial: 'form' %>
+  <div class="card-show d-flex">
+    <div class="card-show-image col-4 d-flex align-items-end p-3"
+          style="background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 185, 52, 0.7)),
+                                    url(https://i.pinimg.com/originals/5a/bb/cb/5abbcb44c878cb1d3c865892cf43c036.jpg)">
+      <%= simple_form_for @dragon do |f| %>
+        <%= f.input :photo, as: :file %>
+    </div>
 
-<%= link_to 'Cancel', dragons_path %>
+    <div class="card-show-info col-8 p-3">
+      <h2 class="form-title text-simple">Add a Dragon</h2>
+      <div class="form-inputs">
+        <%= f.input :name %>
+        <%= f.input :category %>
+        <div class="d-flex justify-content-between">
+          <%= f.input :age %>
+
+          <div class="d-flex flex-column">
+            <label for="dragon_difficulty">Difficulty</label>
+            <select class="custom-select mb-3 form-group" id="dragon_difficulty" name="dragon[difficulty]">
+              <option value="1" selected>Easy</option>
+              <option value="2">Medium</option>
+              <option value="3">Hard</option>
+            </select>
+          </div>
+
+          <%= f.input :price_per_day, hint: 'set price in euros €' %>
+        </div>
+        <%= f.input :address %>
+      </div>
+      <div class="form-actions d-flex justify-content-between">
+        <%= f.button :submit, "Add dragon", class: 'btn btn-info' %>
+        <%= link_to 'Cancel', dragons_path, class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>
