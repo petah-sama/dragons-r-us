@@ -8,14 +8,16 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
 
-        <% if current_user && current_user.photo.attached? %>
-          <%= current_user.first_name.capitalize %>
-          <%= cl_image_tag current_user.photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle ml-3", id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } %>
-        <% elsif current_user %>
-          <%= current_user.first_name.capitalize %>
+        <% if current_user %>
+          <div class="dropdown-toggle text-simple" id="navbarDropdown" data-toggle="dropdown" data-toggle="" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %>
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, height: 40, width: 40, crop: :fill, class: "avatar ml-2" %>
+            <% end %>
+          </div>
         <% else %>
-          <%= link_to "Register", new_user_registration_path %>
-          <%= link_to "Login", user_session_path %>
+          <%= link_to "Register", new_user_registration_path, class: 'link-simple' %>
+          <%= link_to "Login", user_session_path, class: 'link-simple' %>
         <% end %>
 
         <% if user_signed_in? %>

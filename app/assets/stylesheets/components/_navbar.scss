@@ -1,19 +1,6 @@
 .navbar {
   padding: 0 16px 0 0;
-
-  li {
-    color: white;
-    font-family: 'Marcellus';
-  }
-
-  a {
-    text-decoration: none;
-    color: #818181;
-    transition: color 0.5s ease;
-    &:hover {
-      color: white;
-    }
-  }
+  user-select: none;
 }
 
 .navbar-lewagon {
@@ -30,4 +17,8 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.dropdown-toggle::after {
+  display:none;
 }
