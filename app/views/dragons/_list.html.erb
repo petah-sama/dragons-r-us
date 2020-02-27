@@ -1,4 +1,4 @@
-<% @dragons.each do |dragon| %>
+<% @dragons.reverse_each do |dragon| %>
   <div class="card-dragon">
     <% if dragon.photo.attached? %>
         <%= link_to dragon_path(dragon) do %>
