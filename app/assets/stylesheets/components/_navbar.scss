@@ -1,9 +1,9 @@
-.navbar {
-  padding: 0 16px 0 0;
+.dragons-navbar {
+  padding: 10px 16px 0 0;
   background-color: rgba(17, 17, 17, 0.8);
-
-  li {
     color: white;
+
+  .user-dropdown {
     font-family: 'Marcellus';
   }
 
@@ -17,18 +17,12 @@
   }
 }
 
-.navbar-lewagon {
-  justify-content: space-between;
-  height: 48px;
+.dragons-navbar {
+  height: 60px;
   position: sticky;
   top: 0px;
   z-index: 2;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
+

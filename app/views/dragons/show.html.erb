@@ -2,9 +2,9 @@
   <div class="dragon">
     <div class="dragon-image">
       <% if @dragon.photo.attached? %>
-        <%= cl_image_tag @dragon.photo.key, height: 500, width: 300, crop: :fill %>
+        <%= cl_image_tag @dragon.photo.key, height: 550, width: 350, crop: :fill %>
       <% else %>
-        <%= cl_image_tag 'nvou98k9mzayc2m57bm1', height: 500, width: 300, crop: :fill %>
+        <%= cl_image_tag 'nvou98k9mzayc2m57bm1', height: 550, width: 350, crop: :fill %>
       <% end %>
     </div>
     <div class="dragon-info">

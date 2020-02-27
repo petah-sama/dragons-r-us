@@ -1,82 +1,43 @@
-<% if action_name == 'home' %>
-  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-flex flex-row-reverse">
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <div class="dragons-navbar row">
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-
-          <% if current_user && current_user.photo.attached? %>
-            <%= current_user.first_name.capitalize %>
-            <%= cl_image_tag current_user.photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle ml-3", id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } %>
-          <% elsif current_user %>
-            <%= current_user.first_name.capitalize %>
-          <% else %>
-            <%= link_to "Register", new_user_registration_path %>
-            <%= link_to "Login", user_session_path %>
+    <div class="col-8">
+      <div class="d-flex">
+        <% if action_name != 'home' %>
+          <%= form_tag dragons_path, method: :get, class: 'form-inline  mr-auto ml-auto' do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              style: "width: 500px",
+              placeholder: "Search the perfect dragon for you 🔥"
+            %>
+            <%= submit_tag "Search", class: "btn btn-primary" %>
           <% end %>
-
-          <% if user_signed_in? %>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Edit profile", edit_user_registration_path, class: 'dropdown-item' %>
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-            </div>
-          <% end %>
-
-        </li>
-      </ul>
-    </div>
-  </div>
-<% else %>
-  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon d-flex flex-row-reverse">
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-      <div class="d-flex justify-content-center" style="margin-right: 420px">
-        <div>
-        <%= form_tag dragons_path, method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            style: "width: 500px",
-            placeholder: "Search the perfect dragon for you 🔥"
-          %>
-        </div>
-        <div>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
         <% end %>
-        </div>
       </div>
 
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
+    </div>
 
-          <% if current_user && current_user.photo.attached? %>
-            <%= current_user.first_name.capitalize %>
-            <%= cl_image_tag current_user.photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle ml-3", id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } %>
-          <% elsif current_user %>
-            <%= current_user.first_name.capitalize %>
-          <% else %>
-            <%= link_to "Register", new_user_registration_path %>
-            <%= link_to "Login", user_session_path %>
-          <% end %>
+    <div class="col-4 text-right">
+      <div class="dropdown user-dropdown">
 
-          <% if user_signed_in? %>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Edit profile", edit_user_registration_path, class: 'dropdown-item' %>
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-            </div>
-          <% end %>
+        <% if current_user && current_user.photo.attached? %>
+          <%= current_user.first_name.capitalize %>
+          <%= cl_image_tag current_user.photo.key, height: 40, width: 40, crop: :fill, class: "avatar dropdown-toggle ml-3", id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } %>
+        <% elsif current_user %>
+          <%= current_user.first_name.capitalize %>
+        <% else %>
+          <%= link_to "Register", new_user_registration_path %>
+          <%= link_to "Login", user_session_path %>
+        <% end %>
 
-        </li>
-      </ul>
+        <% if user_signed_in? %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Edit profile", edit_user_registration_path, class: 'dropdown-item' %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+          </div>
+        <% end %>
+
+      </div>
     </div>
   </div>
-<% end %>
