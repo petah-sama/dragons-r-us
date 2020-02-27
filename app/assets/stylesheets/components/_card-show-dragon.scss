@@ -1,13 +1,11 @@
 .dragon {
   height: 550px;
-  width: 1100px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   border-radius: 5px;
   margin: 20px auto;
-  margin-top: 60px;
   border-radius: 5px;
 }
 
@@ -15,10 +13,12 @@
   object-fit: cover;
   margin-right: 20px;
   margin: 0px 20px 0px 0px;
+  padding: 0px;
 }
 
 .dragon-image {
   border-radius: 5px;
+  overflow: hidden;
 }
 
 .dragon-card-info {
@@ -35,7 +35,8 @@
 .dragon-card-info li {
   color: gray;
   font-family: sans-serif;
-  font-size: 18px;
+  font-size: 20px;
+  line-height: 30px;
 }
 
 .icons ul {
@@ -51,9 +52,9 @@
 
 .dragon-card-info h1 {
   font-family: 'Marcellus';
-  font-size: 50px;
+  font-size: 40px;
   font-weight: bold;
-  margin: 10px 2px 30px 0px;
+  margin: 10px 2px 10px 0px;
   color: #E67E22;
   flex-grow: 1;
 }
@@ -67,28 +68,54 @@
 }
 
 .map-show {
-  margin-left: 20px;
+  margin-right: 40px;
   width: 300px;
   height: 250px !important;
 }
 
 
-.booking-shit {
-  margin-top: 20px;
-  justify-content: space-between;
-  margin-right: 10px;
-}
-
-.edit-buttons {
-  list-style: none;
-  font-size: 20px;
+.edit-buttons a {
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  margin-right: 8px;
+  margin-left: 8px;
+  background-color: rgb(146, 58, 73);
+  border-radius: 4px;
+  padding: 6px 10px;
 }
 
 .price p{
-  margin-top: 50px;
+  margin-top: 20px;
+  margin-bottom: 10px;
   font-size: 22px;
 }
 
+.booking-details {
+  margin-top: 20px;
+  margin-right: 10px;
+  align-items: center;
+}
 
+.booking-pick ul {
+  list-style: none;
+  padding-left: 0px;
+  margin-left: 0px;
+  font-size: 18px;
+  color: gray;
+}
+
+.booking-calendar {
+  margin-right: 30px;
+}
+
+.booking-calendar a {
+  text-decoration: none;
+  color: rgb(146, 58, 73);
+}
+
+.calendar-heading {
+  text-align: center;
+}
 
 

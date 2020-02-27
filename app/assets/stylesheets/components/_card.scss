@@ -12,10 +12,11 @@
 }
 
 .card-dragon img {
-  height: 180px;
-  width: 140px;
+  height: 200px;
+  width: 160px;
   object-fit: cover;
-  margin: 10px 10px;
+  border-radius: 5px 0px 0px 5px;
+  overflow: hidden;
 }
 
 .card-dragon h2 {

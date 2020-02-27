@@ -1,24 +1,24 @@
-<div class="container-show">
+<div class="container-show col-10">
   <div class="dragon">
-    <div class="dragon-image">
+    <div class="dragon-image col-4 d-flex">
       <% if @dragon.photo.attached? %>
         <%= cl_image_tag @dragon.photo.key, height: 550, width: 350, crop: :fill %>
       <% else %>
         <%= cl_image_tag 'nvou98k9mzayc2m57bm1', height: 550, width: 350, crop: :fill %>
       <% end %>
     </div>
-    <div class="dragon-details">
+    <div class="dragon-details col-8">
       <div class="dragon-card-info d-flex">
         <ul class="icons">
             <div>
               <h1><%= @dragon.name %></h1>
-              <li>Age: <%=@dragon.age %> years</li>
+              <li><strong>Age:</strong> <%=@dragon.age %> years</li>
             <!--   <div class="breeder-category"> -->
                 <li><i class="fas fa-magic"></i> <%= @dragon.user.first_name %> <%= @dragon.user.last_name %></li>
                 <li><i class="fas fa-dragon"></i> <%=@dragon.category %></li>
               <!-- </div> -->
               <div class="difficulty">
-                <li>Difficulty: <% @dragon.difficulty.times do %> <i class="fas fa-meteor"></i> <% end %> </li>
+                <li><strong>Difficulty:</strong> <% @dragon.difficulty.times do %> <i class="fas fa-meteor"></i> <% end %> </li>
               </div>
             </div>
             <div class="price">
@@ -32,6 +32,7 @@
               <% if policy(@dragon).edit? %>
                 <%= link_to 'Delete', @dragon, method: :delete, data: { confirm: "Are you sure?" } %>
               <% end %>
+
             </div>
         </ul>
 
@@ -40,23 +41,21 @@
         </div>
 
       </div>
-      <%= render partial: 'map-show' %>
 
-      <div class="booking-shit d-flex">
-          <div class="booking-details">
-              <div class="booking-pick">
-                <% if @dragon.user == current_user %>
-                  <%= render partial: 'bookings/list' %>
-                <% elsif current_user %>
-                  <%= render partial: 'bookings/new' %>
-                <% end %>
-              </div>
 
-              <div class="booking-calendar">
-                <%= render partial: 'bookings/calendar' %>
-              </div>
-          </div>
-    </div>
+      <div class="booking-details d-flex justify-content-between">
+        <div class="booking-pick">
+          <% if @dragon.user == current_user %>
+            <%= render partial: 'bookings/list' %>
+          <% elsif current_user %>
+            <%= render partial: 'bookings/new' %>
+          <% end %>
+        </div>
+
+        <div class="booking-calendar">
+          <%= render partial: 'bookings/calendar' %>
+        </div>
+      </div>
 
     </div>
 
