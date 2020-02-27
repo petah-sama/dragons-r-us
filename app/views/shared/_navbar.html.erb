@@ -4,14 +4,14 @@
     <div class="col-8">
       <div class="d-flex">
         <% if action_name != 'home' %>
-          <%= form_tag dragons_path, method: :get, class: 'form-inline  mr-auto ml-auto' do %>
+          <%= form_tag dragons_path, method: :get, class: 'form-inline search-bar  mr-auto ml-auto search-bar' do %>
             <%= text_field_tag :query,
               params[:query],
               class: "form-control",
               style: "width: 500px",
               placeholder: "Search the perfect dragon for you 🔥"
             %>
-            <%= submit_tag "Search", class: "btn btn-primary" %>
+            <%= submit_tag "Search", class: "btn btn-outline-dark search-button" %>
           <% end %>
         <% end %>
       </div>

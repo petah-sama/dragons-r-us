@@ -3,7 +3,7 @@
   <%= f.input :category %>
   <%= f.input :age %>
   <%= f.input :price_per_day %>
-  <%= f.input :difficulty %>
+  <%= f.select :difficulty,[['Easy',1], ['Medium', 2], ['Difficult',3]] %>
   <%= f.input :address %>
   <%= f.input :photo, as: :file %>
   <%= f.submit %>

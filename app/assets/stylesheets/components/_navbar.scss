@@ -20,4 +20,15 @@
       color: white;
     }
   }
-} 
+}
+
+.search-bar {
+  position:relative;
+}
+.search-button {
+  position:absolute;
+  border: none;
+  right: 0px;
+  overflow:hidden;
+  padding: 0.450rem 0.80rem;
+}
