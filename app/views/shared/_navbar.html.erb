@@ -1,10 +1,9 @@
 
-  <div class="dragons-navbar row">
-
+  <div class="dragons-navbar row mr-0 ml-0">
     <div class="col-8">
-      <div class="d-flex">
+      <div class="d-flex justify-content-center">
         <% if action_name != 'home' %>
-          <%= form_tag dragons_path, method: :get, class: 'form-inline mr-auto ml-auto search-bar' do %>
+          <%= form_tag dragons_path, method: :get, class: 'form-inline search-bar' do %>
             <%= text_field_tag :query,
               params[:query],
               class: "form-control",
