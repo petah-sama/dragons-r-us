@@ -38,6 +38,7 @@
           <%= render partial: 'bookings/calendar' %>
         </div>
       </div>
+      <%= render partial: 'map-show' %>
 
       <% if policy(@dragon).edit? %>
         <%= link_to 'Edit', edit_dragon_path(@dragon) %>
