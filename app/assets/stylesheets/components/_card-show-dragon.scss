@@ -21,34 +21,72 @@
   border-radius: 5px;
 }
 
-.dragon-info ul{
+.dragon-card-info {
+  width: 700px;
+  justify-content: space-between;
+}
+
+.dragon-card-info ul{
   list-style: none;
   margin-left: 0px;
   padding-left: 0px;
 }
 
-.dragon-info li {
+.dragon-card-info li {
   color: gray;
   font-family: sans-serif;
+  font-size: 18px;
 }
 
 .icons ul {
   list-style: none;
   margin-left: 0px;
   padding-left: 0px;
-  display: flex;
-  justify-content: space-between;
 }
 
 
-.dragon-info h1 {
+.icons i {
+  color: #E67E22;
+}
+
+.dragon-card-info h1 {
   font-family: 'Marcellus';
-  font-size: 30px;
+  font-size: 50px;
+  font-weight: bold;
+  margin: 10px 2px 30px 0px;
+  color: #E67E22;
+  flex-grow: 1;
+}
+
+  h5 {
+  font-family: 'Marcellus';
+  font-size: 25px;
   font-weight: bold;
   margin: 10px 2px 10px 0px;
   color: #E67E22;
-  // position: fixed;
-  // top: 120px;
+}
+
+.map-show {
+  margin-left: 20px;
+  width: 300px;
+  height: 250px !important;
+}
+
+
+.booking-shit {
+  margin-top: 20px;
+  justify-content: space-between;
+  margin-right: 10px;
+}
+
+.edit-buttons {
+  list-style: none;
+  font-size: 20px;
+}
+
+.price p{
+  margin-top: 50px;
+  font-size: 22px;
 }
 
 

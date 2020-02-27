@@ -7,48 +7,61 @@
         <%= cl_image_tag 'nvou98k9mzayc2m57bm1', height: 550, width: 350, crop: :fill %>
       <% end %>
     </div>
-    <div class="dragon-info">
-      <h1>Details for <%= @dragon.name %></h1>
-      <ul class="icons">
-          <div>
-            <li>Age: <%=@dragon.age %> years</li>
-            <div class="breeder-category">
-              <li><i class="fas fa-magic"></i> <%= @dragon.user.first_name %> <%= @dragon.user.last_name %></li>
-              <li><i class="fas fa-dragon"></i> <%=@dragon.category %></li>
+    <div class="dragon-details">
+      <div class="dragon-card-info d-flex">
+        <ul class="icons">
+            <div>
+              <h1><%= @dragon.name %></h1>
+              <li>Age: <%=@dragon.age %> years</li>
+            <!--   <div class="breeder-category"> -->
+                <li><i class="fas fa-magic"></i> <%= @dragon.user.first_name %> <%= @dragon.user.last_name %></li>
+                <li><i class="fas fa-dragon"></i> <%=@dragon.category %></li>
+              <!-- </div> -->
+              <div class="difficulty">
+                <li>Difficulty: <% @dragon.difficulty.times do %> <i class="fas fa-meteor"></i> <% end %> </li>
+              </div>
             </div>
-            <div class="difficulty">
-              <li>Difficulty: <% @dragon.difficulty.times do %> <i class="fas fa-meteor"></i> <% end %> </li>
+            <div class="price">
+              <p> € <%=@dragon.price_per_day %> / day</p>
             </div>
-          </div>
-          <div class="price">
-            <p> € <%=@dragon.price_per_day %> / day</p>
-          </div>
-      </ul>
+            <div class="edit-buttons">
+              <% if policy(@dragon).edit? %>
+                <%= link_to 'Edit', edit_dragon_path(@dragon) %>
+              <% end %>
 
-      <div class="booking-info">
-        <div class="booking-pick">
-          <% if @dragon.user == current_user %>
-            <%= render partial: 'bookings/list' %>
-          <% elsif current_user %>
-            <%= render partial: 'bookings/new' %>
-          <% end %>
+              <% if policy(@dragon).edit? %>
+                <%= link_to 'Delete', @dragon, method: :delete, data: { confirm: "Are you sure?" } %>
+              <% end %>
+            </div>
+        </ul>
+
+        <div class="location-info">
+          <%= render partial: 'dragons/map-show' %>
         </div>
 
-        <div class="booking-calendar">
-          <%= render partial: 'bookings/calendar' %>
-        </div>
       </div>
 
-      <% if policy(@dragon).edit? %>
-        <%= link_to 'Edit', edit_dragon_path(@dragon) %>
-      <% end %>
+      <div class="booking-shit d-flex">
+          <div class="booking-details">
+              <div class="booking-pick">
+                <% if @dragon.user == current_user %>
+                  <%= render partial: 'bookings/list' %>
+                <% elsif current_user %>
+                  <%= render partial: 'bookings/new' %>
+                <% end %>
+              </div>
 
-      <% if policy(@dragon).edit? %>
-        <%= link_to 'Delete', @dragon, method: :delete, data: { confirm: "Are you sure?" } %>
-      <% end %>
+              <div class="booking-calendar">
+                <%= render partial: 'bookings/calendar' %>
+              </div>
+          </div>
+    </div>
 
     </div>
+
   </div>
+
+
   <div class="back">
   <%= link_to 'Back', dragons_path, class: "btn btn-warning"%>
  </div>

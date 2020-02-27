@@ -30,5 +30,10 @@
   border-radius: 8px;
 }
 
+#map-show {
+  height: 400px;
+  width: 400px;
+}
+
 
 @media screen and (max-width: 1000px) {   .map-container { display: none; } }
