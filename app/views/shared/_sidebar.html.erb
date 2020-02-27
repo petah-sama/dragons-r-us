@@ -3,17 +3,34 @@
     <span style="font-family: 'Marcellus';">DRAGONS 'Я' US</span>
   <% end %>
   <hr>
-  <div id="paths"  style="margin-top: 50px">
-    <%= link_to "Dragon's Lair", dragons_path %>
-    <br>
-    <br>
-    <% if user_signed_in? %>
-      <%= link_to "Breed a dragon", new_dragon_path %>
-      <br>
-      <%= link_to "My dragons", my_dragons_path %>
-      <br>
-      <%= link_to "My bookings", my_bookings_path %>
+  <div id="paths">
+    <% if controller_name == 'dragons' && action_name == 'index' %>
+      <%= link_to "Dragon's Lair", dragons_path, class: 'link-active mb-3' %>
+    <% else %>
+      <%= link_to "Dragon's Lair", dragons_path, class: 'mb-3' %>
     <% end %>
+
+    <% if user_signed_in? %>
+      <% if controller_name == 'dragons' && action_name == 'new' %>
+        <%= link_to "Breed a dragon", new_dragon_path, class: 'link-active mt-5' %>
+      <% else %>
+        <%= link_to "Breed a dragon", new_dragon_path, class: 'mt-5' %>
+      <% end %>
+      <br>
+      <% if controller_name == 'pages' && action_name == 'my_dragons' %>
+        <%= link_to "My dragons", my_dragons_path, class: 'link-active mt-1' %>
+      <% else %>
+        <%= link_to "My dragons", my_dragons_path, class: 'mt-1' %>
+      <% end %>
+      <br>
+      <% if controller_name == 'pages' && action_name == 'my_bookings' %>
+        <%= link_to "My bookings", my_bookings_path, class: 'link-active mt-1' %>
+      <% else %>
+        <%= link_to "My bookings", my_bookings_path, class: 'mt-1' %>
+      <% end %>
+    <% end %>
+
+
   </div>
   <div class="footer">
     <div class="footer-links">
