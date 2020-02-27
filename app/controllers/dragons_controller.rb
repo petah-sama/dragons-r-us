@@ -3,8 +3,15 @@ class DragonsController < ApplicationController
   before_action :fetch_dragon, only: %i[show edit update destroy]
 
   def index
-    @dragons = policy_scope(Dragon).geocoded
-
+    if params[:query].present?
+      # sql_query = "name @@ :query OR category @@ :query"
+      # @dragons = policy_scope(Dragon).geocoded.where(sql_query, query: "%#{params[:query]}%")
+      # raise
+      @dragons = policy_scope(Dragon).geocoded.search_by_name_and_category(params[:query])
+    else
+      @dragons = policy_scope(Dragon).geocoded
+    end
+    #@dragons = policy_scope(Dragon).geocoded
     @markers = @dragons.map do |dragon|
       {
         lat: dragon.latitude,
