@@ -11,10 +11,26 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.dragon = @dragon
     @booking.user = current_user
-    if @booking.save
-      redirect_to dragons_path
+
+    rented = false
+    bookings_for_dragon = Booking.where(dragon_id: @booking.dragon_id)
+
+    bookings_for_dragon.each do |booking|
+      starting_date = booking.start_date
+      ending_date = booking.end_date
+      if @booking.start_date.between?(starting_date, ending_date) || @booking.end_date.between?(starting_date, ending_date)
+        rented = true
+      end
+    end
+
+    if rented
+      redirect_to dragon_path(@booking.dragon_id), alert: "This Dragon is already booked in the period you want to book it :("
     else
-      render 'dragons/show'
+      if @booking.save
+        redirect_to my_bookings_path
+      else
+        render 'dragons/show'
+      end
     end
   end
 

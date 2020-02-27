@@ -18,14 +18,19 @@
       <div class="main-container" style="margin-left: 240px;">
 
         <%= render 'shared/navbar' %>
-
-        <div class="yield-container p-4">
-          <%= yield %>
-
-        </div>
+        <% if action_name == 'home' %>
+          <div class="yield-container">
+            <%= yield %>
+          </div>
+        <% else %>
+          <div class="yield-container p-4">
+            <%= yield %>
+          </div>
+        <% end %>
       </div>
     </div>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>
+

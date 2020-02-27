@@ -1,24 +1,23 @@
-.navbar {
-  padding: 0 16px 0 0;
-  user-select: none;
-}
-
-.navbar-lewagon {
-  justify-content: space-between;
-  height: 48px;
+.dragons-navbar {
+  height: 60px;
   position: sticky;
   top: 0px;
   z-index: 2;
-}
+  padding: 10px 16px 0 0;
+  user-select: none;
+  background-color: rgba(17, 17, 17, 0.8);
+    color: white;
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+  .user-dropdown {
+    font-family: 'Marcellus';
+  }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
-.dropdown-toggle::after {
-  display:none;
-}
+  a {
+    text-decoration: none;
+    color: #818181;
+    transition: color 0.5s ease;
+    &:hover {
+      color: white;
+    }
+  }
+} 

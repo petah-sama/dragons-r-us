@@ -1,14 +1,11 @@
-<h1 id='dragons-title' class ='m-3'>Dragons' Lair</h1>
-<div class="content-container d-flex justify-content-around">
-  <div class="container-dragons">
-      <%= render partial: 'list' %>
-  </div>
-  <div
-    id="map"
-    style= "width: 800px; height: 100vh; position: sticky; top:50px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+<div class="content-container d-flex justify-content-between">
+    <div class="container-dragons col-8">
+        <%= render partial: 'list' %>
+    </div>
+    <div class = 'map-container col-4'>
+      <%= render partial: 'map' %>
+    </div>
+
 </div>
 
   <%= link_to 'Home', root_path %>

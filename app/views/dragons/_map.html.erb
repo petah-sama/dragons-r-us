@@ -1,0 +1,8 @@
+   <div
+    class = 'position-sticky w-100'
+    id="map"
+    style= " height: 100vh; position: sticky; top:50px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+

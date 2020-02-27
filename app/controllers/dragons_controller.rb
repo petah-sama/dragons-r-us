@@ -3,14 +3,21 @@ class DragonsController < ApplicationController
   before_action :fetch_dragon, only: %i[show edit update destroy]
 
   def index
-    @dragons = policy_scope(Dragon).geocoded
-
+    if params[:query].present?
+      # sql_query = "name @@ :query OR category @@ :query"
+      # @dragons = policy_scope(Dragon).geocoded.where(sql_query, query: "%#{params[:query]}%")
+      # raise
+      @dragons = policy_scope(Dragon).geocoded.search_by_name_and_category(params[:query])
+    else
+      @dragons = policy_scope(Dragon).geocoded
+    end
+    #@dragons = policy_scope(Dragon).geocoded
     @markers = @dragons.map do |dragon|
       {
         lat: dragon.latitude,
         lng: dragon.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { dragon: dragon })
-
+        infoWindow: render_to_string(partial: "info_window", locals: { dragon: dragon }),
+        image_url: helpers.asset_url('dragon-avatar-blackwhite.jpg')
       }
     end
   end
@@ -26,6 +33,12 @@ class DragonsController < ApplicationController
     when 3
       "Hard"
     end
+    @markers = [{
+      lat: @dragon.latitude,
+      lng: @dragon.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { dragon: @dragon }),
+      image_url: helpers.asset_url('dragon-avatar-blackwhite.jpg')
+    }]
   end
 
   def new
