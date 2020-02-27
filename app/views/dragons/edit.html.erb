@@ -1,5 +1,49 @@
-<h1>Edit <%= @dragon.name %></h1>
+<div class="container-show col-8">
 
-<%= render partial: 'form' %>
+  <div class="card-show d-flex">
+    <% if @dragon.photo.attached? %>
+      <div class="card-show-image col-4 d-flex align-items-end p-3"
+            style="background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 185, 52, 0.7)),
+                                      url(<%= url_for(@dragon.photo) %>)">
+    <% else %>
+      <div class="card-show-image col-4 d-flex align-items-end p-3"
+            style="background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 185, 52, 0.7)),
+                                    url(https://i.pinimg.com/originals/5a/bb/cb/5abbcb44c878cb1d3c865892cf43c036.jpg)">
+    <% end %>
+      <%= simple_form_for @dragon do |f| %>
+        <%= f.input :photo, as: :file %>
+    </div>
 
-<%= link_to 'Cancel', @dragon %>
+    <div class="card-show-info col-8 p-3">
+      <h2 class="form-title text-simple">Edit <%= @dragon.name %></h2>
+      <div class="form-inputs">
+        <%= f.input :name %>
+        <%= f.input :category %>
+        <div class="d-flex justify-content-between">
+          <%= f.input :age %>
+
+          <div class="d-flex flex-column is-valid">
+            <label for="dragon_difficulty">Difficulty</label>
+            <select class="custom-select mb-3 form-group" id="dragon_difficulty" name="dragon[difficulty]">
+              <option value="1" selected>Easy</option>
+              <option value="2">Medium</option>
+              <option value="3">Hard</option>
+            </select>
+          </div>
+
+          <%= f.input :price_per_day, hint: 'set price in euros €' %>
+        </div>
+        <%= f.input :address %>
+      </div>
+      <div class="form-actions d-flex justify-content-between">
+        <%= f.button :submit, "Update dragon", class: 'btn btn-info' %>
+        <div>
+          <%= link_to "Delete Dragon", @dragon, data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %>
+          <%= link_to 'Cancel', @dragon, class: 'btn btn-primary' %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>
