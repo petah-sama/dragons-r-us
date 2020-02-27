@@ -1,20 +1,32 @@
-<h2 class="form-title">Log in</h2>
+<div class="container-show col-8">
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+  <div class="card-show d-flex">
+    <div class="card-show-image col-4 d-flex align-items-end p-3"
+          style="background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 185, 52, 0.7)),
+                                    url(https://scontent.flis8-1.fna.fbcdn.net/v/t1.0-9/61093687_2196438233804291_364668622083194880_n.jpg?_nc_cat=110&_nc_ohc=_mSbFHftfskAX-4oKyU&_nc_ht=scontent.flis8-1.fna&oh=2f676f4defa17f0f99045e67ddd70659&oe=5EFD8E5A)">
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+
+    </div>
+
+    <div class="card-show-info col-8 p-3">
+      <h2 class="form-title text-simple">Log in</h2>
+      <div class="form-inputs">
+        <%= f.input :email,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+        <%= f.input :password,
+                    required: false,
+                    input_html: { autocomplete: "current-password" } %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Log in", class: 'btn btn-info' %>
+        <% end %>
+      </div>
+      <%#= render "devise/shared/links" %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

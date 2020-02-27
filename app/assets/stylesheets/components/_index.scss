@@ -10,6 +10,25 @@
 @import "calendar";
 @import "sidebar";
 @import "container-bookings-index";
-@import "forms";
+@import "card-show";
 @import "map";
 @import "fire-btn";
+
+.link-simple {
+  color: white;
+  font-family: 'Marcellus';
+  text-decoration: none;
+  color: #818181;
+  transition: color 0.5s ease;
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.text-simple {
+  color: white;
+  font-family: 'Marcellus';
+  text-decoration: none;
+  color: #818181;
+}
