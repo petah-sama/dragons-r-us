@@ -1,0 +1,38 @@
+<% @dragons.reverse_each do |dragon| %>
+  <div class="card-dragon mt-3">
+    <% if dragon.photo.attached? %>
+        <%= link_to dragon_path(dragon) do %>
+          <%= cl_image_tag dragon.photo.key, width: 180, height: 100, crop: :fit %>
+        <% end %>
+    <% else %>
+      <%= link_to dragon_path(dragon) do %>
+        <img src="https://i.pinimg.com/originals/7d/d2/59/7dd259143b5aa431d457593ad991bc83.jpg" />
+      <% end %>
+    <% end %>
+    <div class="dragon-info">
+      <% if dragon.user == current_user %>
+      <div class="ribbon ribbon-top-right"><span>My Dragon</span></div>
+      <% end %>
+        <h2><%= link_to dragon.name, dragon_path(dragon) %></h2>
+        <ul>
+          <div>
+            <li>Age: <%=dragon.age %> years</li>
+            <div class="breeder-category">
+              <li><i class="fas fa-magic"></i> <strong><%= dragon.user.first_name %> <%= dragon.user.last_name %></strong></li>
+              <li><i class="fas fa-dragon"></i> <%=dragon.category %></li>
+            </div>
+            <div class="difficulty">
+              <li>Difficulty: <% dragon.difficulty.times do %> <i class="fas fa-meteor"></i> <% end %> </li>
+            </div>
+          </div>
+          <div class="the-price">
+            <p> <%=dragon.price_per_day %></p>
+            <div class="price-smaller">
+              <p>euros</br>/ day</p>
+            </div>
+          </div>
+        </ul>
+    </div>
+  </div>
+
+<% end %>
