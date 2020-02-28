@@ -40,7 +40,11 @@ class PagesController < ApplicationController
   end
 
   def my_bookings
-    @bookings = Booking.where(user: current_user)
+    if params[:query].present?
+      @bookings = Booking.where(user:current_user).search_by_dragon_name(params[:query])
+    else
+      @bookings = Booking.where(user:current_user)
+    end
     authorize @bookings
     date = Date.today
     @active_bookings = []

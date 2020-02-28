@@ -57,15 +57,22 @@
                     required: true,
                     input_html: { autocomplete: "current-password" } %>
       </div>
+      <div class="edit-buttons">
       <div class="form-actions d-flex justify-content-between">
-
-        <%= f.button :submit, "Update", class: 'btn btn-info' %>
+        <button class="btn btn--border">
+        <%= f.button :submit, "Update"%>
+        <span></span></button>
         <div>
-          <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %>
-          <%= link_to "Back", :back, class: 'btn btn-primary' %>
+          <button class="btn btn--swap">
+          <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete%>
+          <span>Are you sure?</span></button>
+          <button class="btn btn--border">
+          <%= link_to "Back", :back%>
+          <span></span></button>
         </div>
         <% end %>
       </div>
+    </div>
 
       <%#= render "devise/shared/links" %>
     </div>

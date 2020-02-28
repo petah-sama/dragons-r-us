@@ -23,9 +23,28 @@
                 <li><strong>Difficulty:</strong> <% @dragon.difficulty.times do %> <i class="fas fa-meteor"></i> <% end %> </li>
               </div>
             </div>
+
             <div class="price text-center">
               <p class="m-0" style="font-size: 250%"><%=@dragon.price_per_day %></p>
               <p class="m-0">€ / day</p>
+            </div>
+            <div class="edit-buttons">
+              <% if policy(@dragon).edit? %>
+              <button class="btn btn--border">
+                <%= link_to 'Edit', edit_dragon_path(@dragon) %>
+              <% end %>
+              <span></span></button>
+
+              <button class="btn btn--border">
+              <%= link_to 'Back', dragons_path%>
+               <span></span></button>
+
+               <% if policy(@dragon).edit? %>
+              <button class="btn btn--swap">
+                <%= link_to 'Delete', @dragon, method: :delete, data: { confirm: "Are you sure?" } %>
+              <span>Are you sure?</span></button>
+              <% end %>
+
             </div>
           </div>
         </div>

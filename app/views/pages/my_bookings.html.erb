@@ -16,14 +16,18 @@
               <h1><%= booking.countdown %></h1>
               <p>days until your booking</p>
             <% elsif booking.countdown == 0 %>
-              <p><strong>Your can get your dragon today!</strong></p>
+              <p><strong>You can get your dragon today!</strong></p>
             <% else %>
               <h1><%= booking.days_remaining %></h1>
               <p>days remaining in your booking</p>
             <% end %>
+            <div class="edit-buttons">
             <% if policy(booking).destroy? %>
+            <button class="btn btn--swap">
               <%= link_to 'Cancel booking', booking, method: :delete, data: { confirm: "Are you sure?" } %>
             <% end %>
+            <span>Are you sure?</span></button>
+          </div>
           </div>
         </div>
       </div>
