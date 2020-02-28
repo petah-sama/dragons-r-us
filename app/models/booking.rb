@@ -7,6 +7,15 @@ class Booking < ApplicationRecord
   validates :end_date, presence: true
   validate :end_date_after_start_date
 
+  include PgSearch::Model
+
+  pg_search_scope :search_by_dragon_name,
+    associated_against: {
+      dragon: [:name, :category]
+       },
+    using: {
+      tsearch: { prefix: true }
+    }
 
   def total_price
     days = (self.end_date - self.start_date).to_i
