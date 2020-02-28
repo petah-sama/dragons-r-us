@@ -1,0 +1,5 @@
+.grow { transition: all .1s ease-in-out; }
+.grow:hover { transform: scale(1.05); }
+
+.slowly-grow { transition: all 5s ease-in-out; }
+.slowly-grow:hover { transform: scale(1.2); }
