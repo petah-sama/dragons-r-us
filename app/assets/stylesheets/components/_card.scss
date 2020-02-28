@@ -17,6 +17,7 @@
   object-fit: cover;
   border-radius: 5px 0px 0px 5px;
   overflow: hidden;
+  margin-right: 10px;
 }
 
 .card-dragon h2 {
@@ -35,18 +36,27 @@
 .card-dragon ul {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   margin-left: 0px;
   padding-left: 0px;
 }
 
-.price p {
-  color: rgb(146, 58, 73);
-  font-size: 18px;
+
+.the-price p {
+  color: black;
+  font-size: 30px;
   font-weight: bold;
   flex-grow: 1;
+  line-height: 30px;
   margin-bottom: 0px;
   margin-right: 10px;
   margin-left: 5px;
+  text-align: center;
+}
+
+.price-smaller p {
+  font-size: 18px;
+  line-height: 18px;
 }
 
 .card-dragon li {
@@ -88,3 +98,56 @@
   right:10px;
   top: 5px
 }
+
+.ribbon {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  position: absolute;
+}
+.ribbon::before,
+.ribbon::after {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  display: block;
+  border: 5px solid #E67E22;
+}
+.ribbon span {
+  position: absolute;
+  display: block;
+  width: 225px;
+  padding: 15px 0;
+  background-color: #E67E22;
+  box-shadow: 0 5px 10px rgba(0,0,0,.1);
+  color: white;
+  font: 700 18px/1 'Marcellus';
+  text-align: center;
+}
+
+/* top right*/
+.ribbon-top-right {
+  top: -10px;
+  right: -10px;
+}
+.ribbon-top-right::before,
+.ribbon-top-right::after {
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+.ribbon-top-right::before {
+  top: 0;
+  left: 0;
+}
+.ribbon-top-right::after {
+  bottom: 0;
+  right: 0;
+}
+.ribbon-top-right span {
+  left: -25px;
+  top: 30px;
+  transform: rotate(45deg);
+}
+
+
+
