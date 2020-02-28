@@ -1,5 +1,39 @@
-<div class="container-dragons">
+<div class="content-container d-flex justify-content-between">
+    <div class="container-dragons col-8 pr-4">
+      <%= render partial: 'dragons/list' %>
+    </div>
+    <div class="my-dragons-side col-4 p-0">
+      <div class = 'map-container map-my-dragons'>
+        <%= render partial: 'dragons/map' %>
+      </div>
+      <div class="info-card-my-dragons p-3 mt-3">
+        <h2><strong><%= @user_dragons_bookings.count %>/<%= @dragons.count %></strong> dragons</h2>
+        <p>are currently being booked</p>
+        <% @user_dragons_bookings.each do |booking| %>
+          <hr>
+          <h5><%= link_to booking.dragon.name, dragon_path(booking.dragon), class: 'link-my-dragons' %></h5>
+          <div class="d-flex justify-content-between">
+            <div class="col-4 p-0 m-0">
+              <p><strong>Start date:</strong> <br> <%= booking.start_date.strftime("%d %b %Y") %></p>
+              <p class="m-0"><strong>End date:</strong> <br> <%= booking.end_date.strftime("%d %b %Y") %></p>
+            </div>
+            <div class="d-flex flex-column justify-content-start align-items-center col-4 p-0 m-0">
+              <h1><strong><%= booking.days_remaining %></strong></h1>
+              <p>days left</p>
+            </div>
+            <% if booking.user.photo.attached? %>
+              <div class="booking-user col-4 p-2 m-0 d-flex align-items-end"
+                  style="background-image: url(<%= url_for(booking.user.photo) %>)">
+            <% else %>
+              <div class="booking-user col-4 p-2 m-0 d-flex align-items-end"
+                  style="background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 185, 52, 0.7)),
+                                            url(https://scontent.flis8-1.fna.fbcdn.net/v/t1.0-9/61093687_2196438233804291_364668622083194880_n.jpg?_nc_cat=110&_nc_ohc=_mSbFHftfskAX-4oKyU&_nc_ht=scontent.flis8-1.fna&oh=2f676f4defa17f0f99045e67ddd70659&oe=5EFD8E5A)">
+            <% end %>
 
-  <%= render partial: 'dragons/list' %>
-
+              <p class="m-0"><strong>Rider:</strong> <br>  <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
 </div>

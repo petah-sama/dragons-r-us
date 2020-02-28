@@ -10,10 +10,15 @@ class Booking < ApplicationRecord
 
   def total_price
     days = (self.end_date - self.start_date).to_i
-    total_price = self.dragon.price_per_day*days
+    total_price = self.dragon.price_per_day * days
   end
 
   def countdown
+    date = Date.today
+    days_left = (self.start_date - date).to_i
+  end
+
+  def days_remaining
     days_left = (self.end_date - self.start_date).to_i
   end
 

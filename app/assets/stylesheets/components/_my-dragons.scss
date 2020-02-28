@@ -1,0 +1,32 @@
+.map-my-dragons #map {
+  height: 240px !important;
+}
+
+.info-card-my-dragons {
+  background: white;
+  border-radius: 5px;
+}
+
+.booking-user {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+}
+
+.link-my-dragons {
+  font-family: 'Marcellus';
+  text-decoration: none;
+  color: #E67E22;
+  &:hover {
+    text-decoration: none;
+    color: #E67E22;
+  }
+}
+
+.info-card-my-bookings {
+  height: 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 1rem;
+}
