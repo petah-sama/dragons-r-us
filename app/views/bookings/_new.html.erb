@@ -15,13 +15,11 @@
   <div class="m-0 p-0">
     <%= f.input :start_date, html5: true, class: 'form-control datepicker' %>
     <%= f.input :end_date, html5: true  %>
-    <%= f.submit 'Create a booking', class: 'btn btn-success' %>
-  </div>
-
-  <div class="edit-buttons">
-  <button class="btn btn--border">
-  <%= f.submit 'Create a booking'%>
-  <span></span></button>
+    <div class="edit-buttons">
+      <button class="btn btn--border">
+      <%= f.submit 'Create a booking'%>
+      <span></span></button>
+    </div>
   </div>
 
 <% end %>

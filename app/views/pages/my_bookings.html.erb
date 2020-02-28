@@ -6,21 +6,25 @@
       <div class="info-card-my-dragons p-3">
         <h3><%= link_to booking.dragon.name, dragon_path(booking.dragon), class: 'link-my-dragons' %></h3>
         <div class="d-flex justify-content-between m-0">
-          <div class="col-5 p-0 m-0">
+          <div class="col-4 p-0 m-0">
             <p><strong>Start date:</strong> <br> <%= booking.start_date.strftime("%d %b %Y") %></p>
             <p><strong>End date:</strong> <br> <%= booking.end_date.strftime("%d %b %Y") %></p>
             <p class="m-0"><strong>Final price:</strong> <%= booking.total_price %> €</p>
           </div>
-          <div class="col-5 p-0 m-0 d-flex flex-column justify-content-between">
-            <% if booking.countdown > 0 %>
-              <h1><%= booking.countdown %></h1>
-              <p>days until your booking</p>
-            <% elsif booking.countdown == 0 %>
-              <p><strong>You can get your dragon today!</strong></p>
-            <% else %>
-              <h1><%= booking.days_remaining %></h1>
-              <p>days remaining in your booking</p>
-            <% end %>
+          <div class="col-6 p-0 m-0 text-center">
+
+              <% if booking.countdown > 0 %>
+                <h1><%= booking.countdown %></h1>
+                <p>days until your booking</p>
+              <% elsif booking.countdown == 0 %>
+                <p><strong>You can get your dragon today!</strong></p>
+              <% else %>
+                <h1><%= booking.days_remaining %></h1>
+                <div class="p-0 col-10">
+                  <p>days remaining in your booking</p>
+                </div>
+              <% end %>
+
             <div class="edit-buttons">
               <% if policy(booking).destroy? %>
                 <button class="btn btn--swap">
@@ -30,8 +34,7 @@
                   <% end %>
                 </button>
               <% end %>
-
-          </div>
+            </div>
           </div>
         </div>
       </div>
@@ -40,6 +43,7 @@
   </div>
   <div class="my-dragons-side col-4 p-0">
     <div class="info-card-my-dragons p-3">
+      <h4>Bookings Calendar</h4>
       <%= month_calendar events: @bookings do |date, bookings| %>
         <%= date.day %>
 
