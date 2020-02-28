@@ -22,11 +22,15 @@
               <p>days remaining in your booking</p>
             <% end %>
             <div class="edit-buttons">
-            <% if policy(booking).destroy? %>
-            <button class="btn btn--swap">
-              <%= link_to 'Cancel booking', booking, method: :delete, data: { confirm: "Are you sure?" } %>
-            <% end %>
-            <span>Are you sure?</span></button>
+              <% if policy(booking).destroy? %>
+                <button class="btn btn--swap">
+                  <%= link_to booking, method: :delete, data: { confirm: "Are you sure?" } do %>
+                    Cancel Booking
+                    <span>Are you sure?</span>
+                  <% end %>
+                </button>
+              <% end %>
+
           </div>
           </div>
         </div>
