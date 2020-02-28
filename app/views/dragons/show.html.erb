@@ -26,11 +26,19 @@
             </div>
             <div class="edit-buttons">
               <% if policy(@dragon).edit? %>
+              <button class="btn btn--border">
                 <%= link_to 'Edit', edit_dragon_path(@dragon) %>
               <% end %>
+              <span></span></button>
 
-              <% if policy(@dragon).edit? %>
+              <button class="btn btn--border">
+              <%= link_to 'Back', dragons_path%>
+               <span></span></button>
+
+               <% if policy(@dragon).edit? %>
+              <button class="btn btn--swap">
                 <%= link_to 'Delete', @dragon, method: :delete, data: { confirm: "Are you sure?" } %>
+              <span>Are you sure?</span></button>
               <% end %>
 
             </div>
@@ -61,9 +69,5 @@
 
   </div>
 
-
-  <div class="back">
-  <%= link_to 'Back', dragons_path, class: "btn btn-warning"%>
- </div>
 </div>
 
