@@ -6,8 +6,13 @@ class PagesController < ApplicationController
   end
 
   def my_dragons
-    @dragons = Dragon.where(user: current_user)
-    authorize @dragons
+    if params[:query].present?
+      @dragons = Dragon.where(user:current_user).search_by_name_and_category(params[:query])
+      authorize @dragons
+    else
+      @dragons = Dragon.where(user:current_user)
+      authorize @dragons
+
     @markers = @dragons.map do |dragon|
       {
         lat: dragon.latitude,
@@ -30,6 +35,7 @@ class PagesController < ApplicationController
       if booking.dragon.user == current_user
         @user_dragons_bookings << booking
       end
+
     end
   end
 
