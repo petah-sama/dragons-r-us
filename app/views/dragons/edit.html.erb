@@ -35,10 +35,16 @@
         <%= f.input :address %>
       </div>
       <div class="form-actions d-flex justify-content-between">
-        <%= f.button :submit, "Update dragon", class: 'btn btn-info' %>
+        <button class="btn btn--border">
+        <%= f.button :submit, "Update dragon"%>
+         <span></span></button>
         <div>
-          <%= link_to "Delete Dragon", @dragon, data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %>
-          <%= link_to 'Cancel', @dragon, class: 'btn btn-primary' %>
+          <button class="btn btn--swap">
+          <%= link_to "Delete Dragon", @dragon, data: { confirm: "Are you sure?" }, method: :delete %>
+          <span>Are you sure?</span></button>
+          <button class="btn btn--border">
+          <%= link_to 'Cancel', @dragon %>
+          <span></span></button>
         </div>
         <% end %>
       </div>

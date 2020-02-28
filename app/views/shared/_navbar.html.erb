@@ -10,7 +10,7 @@
               class: "form-control",
               style: "width: 500px",
               placeholder: "Search the perfect dragon for you" %>
-              <%= submit_tag "Search", class: "btn btn-outline-dark search-button" %>
+              <%= submit_tag "Search", class: "search-btn btn-outline-dark search-button" %>
               <% end %>
             <% elsif action_name == 'my_dragons' %>
               <%= form_tag 'my-dragons', method: :get, class: 'form-inline search-bar' do %>
@@ -19,7 +19,7 @@
                 class: "form-control",
                 style: "width: 500px",
                 placeholder: "Search your dragons" %>
-              <%= submit_tag "Search", class: "btn btn-outline-dark search-button" %>
+              <%= submit_tag "Search", class: "search-btn btn-outline-dark search-button" %>
               <% end %>
           <% end %>
         <% end %>
