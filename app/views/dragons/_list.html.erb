@@ -1,5 +1,5 @@
 <% @dragons.reverse_each do |dragon| %>
-  <div class="card-dragon">
+  <div class="card-dragon mt-3">
     <% if dragon.photo.attached? %>
         <%= link_to dragon_path(dragon) do %>
           <%= cl_image_tag dragon.photo.key, width: 180, height: 100, crop: :fit %>

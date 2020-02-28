@@ -22,7 +22,6 @@ class DragonsController < ApplicationController
     end
   end
 
-
   def show
     @booking = Booking.new
     @diff = case @dragon.difficulty
