@@ -29,10 +29,16 @@
         </div>
         <%= f.input :address %>
       </div>
+      <div class="edit-buttons">
       <div class="form-actions d-flex justify-content-between">
-        <%= f.button :submit, "Add dragon", class: 'btn btn-info' %>
-        <%= link_to 'Cancel', dragons_path, class: 'btn btn-primary' %>
+         <button class="btn btn--border">
+        <%= f.button :submit, "Add dragon" %>
+        <span></span></button>
+        <button class="btn btn--border">
+        <%= link_to 'Cancel', dragons_path %>
+        <span></span></button>
         <% end %>
+        </div>
       </div>
     </div>
   </div>

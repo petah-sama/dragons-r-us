@@ -16,5 +16,9 @@
     <%= f.input :start_date, html5: true, class: 'form-control datepicker' %>
     <%= f.input :end_date, html5: true  %>
   </div>
-  <%= f.submit 'Create a booking', class: 'btn btn-success' %>
+  <div class="edit-buttons">
+  <button class="btn btn--border">
+  <%= f.submit 'Create a booking'%>
+  <span></span></button>
+  </div>
 <% end %>
