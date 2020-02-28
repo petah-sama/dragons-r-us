@@ -1,35 +1,13 @@
 .dragon {
-  height: 550px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  border-radius: 5px;
-  margin: 20px auto;
-  border-radius: 5px;
-}
-
-.dragon .dragon-image {
-  object-fit: cover;
-  margin-right: 20px;
-  margin: 0px 20px 0px 0px;
-  padding: 0px;
-}
-
-.dragon-image {
   border-radius: 5px;
   overflow: hidden;
 }
 
-.dragon-card-info {
-  width: 700px;
-  justify-content: space-between;
-}
-
-.dragon-card-info ul{
-  list-style: none;
-  margin-left: 0px;
-  padding-left: 0px;
+.dragon-image {
+  object-fit: cover;
+  overflow: hidden;
+  text-align: center;
 }
 
 .dragon-card-info li {
@@ -39,12 +17,16 @@
   line-height: 30px;
 }
 
+.location-info {
+  overflow: hidden;
+  border-radius: 5px;
+}
+
 .icons ul {
   list-style: none;
   margin-left: 0px;
   padding-left: 0px;
 }
-
 
 .icons i {
   color: #E67E22;

@@ -25,7 +25,7 @@ class PagesController < ApplicationController
     date = Date.today
     active_bookings = []
     Booking.all.each do |booking|
-      if date > booking.start_date && date < booking.end_date
+      if date >= booking.start_date && date <= booking.end_date
         active_bookings << booking
       end
     end
@@ -49,7 +49,7 @@ class PagesController < ApplicationController
     date = Date.today
     @active_bookings = []
     @bookings.each do |booking|
-      if date > booking.start_date && date < booking.end_date
+      if date >= booking.start_date && date <= booking.end_date
         @active_bookings << booking
       end
     end

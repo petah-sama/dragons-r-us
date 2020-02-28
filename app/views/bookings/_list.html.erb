@@ -1,8 +1,7 @@
 <% @dragon.bookings.each do |booking| %>
-  <ul>
-    <li><strong>Rider:</strong> <%= booking.user.first_name %> <%= booking.user.last_name %></li>
-    <li><strong>Start date:</strong> <%= booking.start_date %></li>
-    <li><strong>End date:</strong>  <%= booking.end_date %></li>
-    <li><% booking.countdown %></li>
+  <ul class="list-inline">
+    <li><h3><strong><%= booking.user.first_name %> <%= booking.user.last_name %></strong></h3></li>
+    <li><strong>Start date:</strong> <%= booking.start_date.strftime("%d %b %Y") %></li>
+    <li><strong>End date:</strong>  <%= booking.end_date.strftime("%d %b %Y") %></li>
   </ul>
 <% end %>

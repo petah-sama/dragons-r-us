@@ -1,28 +1,32 @@
 <div class="container-show col-10">
-  <div class="dragon">
-    <div class="dragon-image col-4 d-flex">
+
+  <div class="dragon d-flex p-0">
+    <div class="dragon-image col-4 p-0">
       <% if @dragon.photo.attached? %>
-        <%= cl_image_tag @dragon.photo.key, height: 550, width: 350, crop: :fill %>
+        <%= cl_image_tag @dragon.photo.key, height: 600, width: 320, crop: :fill %>
       <% else %>
-        <%= cl_image_tag 'nvou98k9mzayc2m57bm1', height: 550, width: 350, crop: :fill %>
+        <%= cl_image_tag 'nvou98k9mzayc2m57bm1', height: 600, width: 320, crop: :fill %>
       <% end %>
     </div>
-    <div class="dragon-details col-8">
-      <div class="dragon-card-info d-flex">
-        <ul class="icons">
-            <div>
-              <h1><%= @dragon.name %></h1>
-              <li><strong>Age:</strong> <%=@dragon.age %> years</li>
-            <!--   <div class="breeder-category"> -->
+
+    <div class="dragon-details col-8 m-0 px-3">
+
+      <div class="dragon-card-info d-flex justify-content-between m-0">
+        <div class="icons col-6 m-0 p-0">
+          <h1><%= @dragon.name %></h1>
+          <div class="d-flex justify-content-between pr-3">
+            <div class="list-inline">
+                <li><strong>Age:</strong> <%=@dragon.age %> years</li>
                 <li><i class="fas fa-magic"></i> <%= @dragon.user.first_name %> <%= @dragon.user.last_name %></li>
                 <li><i class="fas fa-dragon"></i> <%=@dragon.category %></li>
-              <!-- </div> -->
               <div class="difficulty">
                 <li><strong>Difficulty:</strong> <% @dragon.difficulty.times do %> <i class="fas fa-meteor"></i> <% end %> </li>
               </div>
             </div>
-            <div class="price">
-              <p><%=@dragon.price_per_day %> euros / day</p>
+
+            <div class="price text-center">
+              <p class="m-0" style="font-size: 250%"><%=@dragon.price_per_day %></p>
+              <p class="m-0">€ / day</p>
             </div>
             <div class="edit-buttons">
               <% if policy(@dragon).edit? %>
@@ -42,16 +46,33 @@
               <% end %>
 
             </div>
-        </ul>
-
-        <div class="location-info">
-          <%= render partial: 'dragons/map-show' %>
+          </div>
         </div>
 
+        <div class="location-info col-6 p-0 mx-0 my-3">
+          <%= render partial: 'dragons/map-show' %>
+        </div>
       </div>
 
+      <div class="edit-buttons d-flex justify-content-between">
+        <% if policy(@dragon).edit? %>
+        <button class="btn btn--border">
+          <%= link_to 'Edit', edit_dragon_path(@dragon) %>
+        <% end %>
+        <span></span></button>
 
-      <div class="booking-details d-flex justify-content-between">
+        <button class="btn btn--border">
+        <%= link_to 'Back', dragons_path%>
+         <span></span></button>
+
+         <% if policy(@dragon).edit? %>
+        <button class="btn btn--swap">
+          <%= link_to 'Delete', @dragon, method: :delete, data: { confirm: "Are you sure?" } %>
+        <span>Are you sure?</span></button>
+        <% end %>
+      </div>
+
+      <div class="booking-details d-flex justify-content-between p-0 m-0 mt-4">
         <div class="booking-pick">
           <% if @dragon.user == current_user %>
             <%= render partial: 'bookings/list' %>
@@ -66,8 +87,6 @@
       </div>
 
     </div>
-
   </div>
 
 </div>
-
