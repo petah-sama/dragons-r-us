@@ -1,29 +1,72 @@
-<div class="container-bookings">
+<div class="content-container d-flex justify-content-between">
+  <div class="container-dragons col-8 pr-4 info-card-my-bookings">
 
-  <div class="d-flex justify-contents-between">
-     <div class="flex-grow">
-      <% @bookings.each do |booking| %>
-      <h3> <%= link_to booking.dragon.name, dragon_path(booking.dragon)%></h3>
-        <ul>
-          <li> <strong>Start date:</strong> <%= booking.start_date %></li>
-          <li>End date:<%= booking.end_date%></li>
-          <li>Days until your booking: <%= booking.countdown %> </li>
-          <li>Final price: <%= booking.total_price %> euros</li>
 
-          <% if policy(booking).destroy? %>
-            <%= link_to 'Delete', booking, method: :delete, data: { confirm: "Are you sure?" } %>
-          <% end %>
-        </ul>
-      <% end %>
-    </div>
+    <% @bookings.each do |booking| %>
+      <div class="info-card-my-dragons p-3">
+        <h3><%= link_to booking.dragon.name, dragon_path(booking.dragon), class: 'link-my-dragons' %></h3>
+        <div class="d-flex justify-content-between m-0">
+          <div class="col-5 p-0 m-0">
+            <p><strong>Start date:</strong> <br> <%= booking.start_date.strftime("%d %b %Y") %></p>
+            <p><strong>End date:</strong> <br> <%= booking.end_date.strftime("%d %b %Y") %></p>
+            <p class="m-0"><strong>Final price:</strong> <%= booking.total_price %> €</p>
+          </div>
+          <div class="col-5 p-0 m-0 d-flex flex-column justify-content-between">
+            <% if booking.countdown > 0 %>
+              <h1><%= booking.countdown %></h1>
+              <p>days until your booking</p>
+            <% elsif booking.countdown == 0 %>
+              <p><strong>Your can get your dragon today!</strong></p>
+            <% else %>
+              <h1><%= booking.days_remaining %></h1>
+              <p>days remaining in your booking</p>
+            <% end %>
+            <% if policy(booking).destroy? %>
+              <%= link_to 'Cancel booking', booking, method: :delete, data: { confirm: "Are you sure?" } %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
 
-    <div class="calendar-container">
+  </div>
+  <div class="my-dragons-side col-4 p-0">
+    <div class="info-card-my-dragons p-3">
       <%= month_calendar events: @bookings do |date, bookings| %>
         <%= date.day %>
 
         <% bookings.each do |booking| %>
           <p><%= booking.dragon.name %></p>
         <% end %>
+      <% end %>
+    </div>
+    <div class="info-card-my-dragons p-3 mt-3">
+      <h2><strong><%= @active_bookings.count %></strong> dragons</h2>
+      <p>are in your possession right now</p>
+      <% @active_bookings.each do |booking| %>
+        <hr>
+        <h5><%= link_to booking.dragon.name, dragon_path(booking.dragon), class: 'link-my-dragons' %></h5>
+        <div class="d-flex justify-content-between">
+          <div class="col-4 p-0 m-0">
+            <p><strong>Start date:</strong> <br> <%= booking.start_date.strftime("%d %b %Y") %></p>
+            <p class="m-0"><strong>End date:</strong> <br> <%= booking.end_date.strftime("%d %b %Y") %></p>
+          </div>
+          <div class="d-flex flex-column justify-content-start align-items-center col-4 p-0 m-0">
+            <h1><strong><%= booking.days_remaining %></strong></h1>
+            <p>days left</p>
+          </div>
+          <% if booking.user.photo.attached? %>
+            <div class="booking-user col-4 p-2 m-0 d-flex align-items-end"
+                style="background-image: url(<%= url_for(booking.user.photo) %>)">
+          <% else %>
+            <div class="booking-user col-4 p-2 m-0 d-flex align-items-end"
+                style="background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 185, 52, 0.7)),
+                                          url(https://scontent.flis8-1.fna.fbcdn.net/v/t1.0-9/61093687_2196438233804291_364668622083194880_n.jpg?_nc_cat=110&_nc_ohc=_mSbFHftfskAX-4oKyU&_nc_ht=scontent.flis8-1.fna&oh=2f676f4defa17f0f99045e67ddd70659&oe=5EFD8E5A)">
+          <% end %>
+
+            <p class="m-0"><strong>Rider:</strong> <br>  <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
