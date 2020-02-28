@@ -12,7 +12,7 @@ class PagesController < ApplicationController
     else
       @dragons = Dragon.where(user:current_user)
       authorize @dragons
-
+    end
     @markers = @dragons.map do |dragon|
       {
         lat: dragon.latitude,
