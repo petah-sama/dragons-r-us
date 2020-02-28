@@ -1,4 +1,4 @@
-<h5>Add a new booking</h5>
+<h5 class="m-0 p-0">Add a new booking</h5>
 
 <% if @booking.errors.any? %>
   <div class="alert alert-danger">
@@ -12,9 +12,9 @@
 <% end %>
 
 <%= simple_form_for [@dragon, @booking] do |f| %>
-  <div class="d-flex">
+  <div class="m-0 p-0">
     <%= f.input :start_date, html5: true, class: 'form-control datepicker' %>
     <%= f.input :end_date, html5: true  %>
+    <%= f.submit 'Create a booking', class: 'btn btn-success' %>
   </div>
-  <%= f.submit 'Create a booking', class: 'btn btn-success' %>
 <% end %>
