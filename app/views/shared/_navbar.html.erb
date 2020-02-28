@@ -3,14 +3,24 @@
     <div class="col-8">
       <div class="d-flex justify-content-center">
         <% if action_name != 'home' %>
-          <%= form_tag dragons_path, method: :get, class: 'form-inline search-bar' do %>
+          <% if controller_name == 'dragons' %>
+            <%= form_tag dragons_path, method: :get, class: 'form-inline search-bar' do %>
             <%= text_field_tag :query,
               params[:query],
               class: "form-control",
               style: "width: 500px",
-              placeholder: "Search the perfect dragon for you 🔥"
-            %>
-            <%= submit_tag "Search", class: "btn btn-outline-dark search-button" %>
+              placeholder: "Search the perfect dragon for you" %>
+              <%= submit_tag "Search", class: "btn btn-outline-dark search-button" %>
+              <% end %>
+            <% elsif action_name == 'my_dragons' %>
+              <%= form_tag 'my-dragons', method: :get, class: 'form-inline search-bar' do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                style: "width: 500px",
+                placeholder: "Search your dragons" %>
+              <%= submit_tag "Search", class: "btn btn-outline-dark search-button" %>
+              <% end %>
           <% end %>
         <% end %>
       </div>
